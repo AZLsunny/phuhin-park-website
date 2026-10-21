@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#183d32">
+  <meta name="description" content="ข้อมูลเส้นทางเดินป่า แผนที่ และไฟล์ GPS ของอุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท">
+  <title>เส้นทางเดินป่า | อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --forest: #183d32;
+      --forest-light: #315b48;
+      --cream: #f7f5ee;
+      --sand: #e8dfcc;
+      --text: #24352c;
+      --muted: #68776d;
+      --white: #ffffff;
+      --line: #e4e7df;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'IBM Plex Sans Thai', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(1160px, 90%);
+      margin: 0 auto;
+    }
+
+    /* =========================================
+       NAVIGATION (ตรงตามหน้า index.html 100%)
+    ========================================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(247, 245, 238, 0.97);
+      border-bottom: 1px solid rgba(24, 61, 50, 0.1);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      text-decoration: none;
+    }
+
+    .nav-brand img {
+      width: 48px;
+      height: 52px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .nav-brand strong {
+      display: block;
+      color: var(--forest);
+      font-size: 15px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .nav-brand span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--forest-light);
+      font-weight: 600;
+    }
+
+    .lang-btn {
+      flex-shrink: 0;
+      border: 1px solid var(--forest);
+      background: transparent;
+      color: var(--forest);
+      border-radius: 30px;
+      padding: 7px 15px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .lang-btn:hover {
+      background: var(--forest);
+      color: white;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--forest);
+      border-radius: 10px;
+      width: 42px;
+      height: 42px;
+      cursor: pointer;
+      font-size: 23px;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 490px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 55%;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(12, 31, 24, 0.83),
+        rgba(12, 31, 24, 0.36) 65%,
+        rgba(12, 31, 24, 0.12)
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(1160px, 90%);
+      margin: 0 auto;
+      padding: 80px 0 68px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero .eyebrow {
+      color: #e5dfcc;
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      margin: 0 0 18px;
+      font-size: clamp(36px, 5.4vw, 62px);
+      line-height: 1.3;
+      font-weight: 600;
+    }
+
+    .hero-description {
+      max-width: 620px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 16px;
+    }
+
+    /* Introduction */
+    .intro {
+      padding: 65px 0 35px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .section-label {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+    }
+
+    .intro h2,
+    .section-heading h2 {
+      color: var(--forest);
+      font-size: clamp(27px, 3vw, 38px);
+      line-height: 1.45;
+      margin: 0 0 16px;
+      font-weight: 600;
+    }
+
+    .intro p,
+    .section-heading p {
+      margin-top: 0;
+    }
+
+    .intro-note {
+      border-left: 3px solid var(--forest-light);
+      padding: 5px 0 5px 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Trail distance cards */
+    .distance-section {
+      padding: 35px 0 65px;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 28px;
+    }
+
+    .distance-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .distance-card {
+      padding: 30px;
+      background: var(--white);
+      border: 1px solid var(--line);
+    }
+
+    .distance-card .number {
+      color: var(--forest);
+      font-size: 35px;
+      line-height: 1.4;
+      font-weight: 600;
+      margin: 8px 0;
+    }
+
+    .distance-card h3 {
+      margin: 0;
+      color: var(--forest);
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .distance-card p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .distance-card .tag {
+      display: inline-block;
+      padding: 4px 10px;
+      background: var(--cream);
+      color: var(--forest-light);
+      font-size: 12px;
+    }
+
+    /* Map */
+    .map-section {
+      padding: 65px 0;
+      background: #eeece2;
+    }
+
+    .map-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 25px;
+    }
+
+    .map-heading h2 {
+      color: var(--forest);
+      font-size: clamp(27px, 3vw, 38px);
+      line-height: 1.4;
+      margin: 0 0 10px;
+      font-weight: 600;
+    }
+
+    .map-heading p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .map-frame {
+      height: 540px;
+      overflow: hidden;
+      background: var(--sand);
+      border: 1px solid #d8d4c7;
+      border-radius: 4px;
+    }
+
+    .map-frame iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .map-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 11px 20px;
+      background: var(--forest);
+      color: var(--white);
+      text-decoration: none;
+      border: 1px solid var(--forest);
+      border-radius: 3px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s ease;
+    }
+
+    .button:hover {
+      background: var(--forest-light);
+    }
+
+    .button.secondary {
+      color: var(--forest);
+      background: transparent;
+    }
+
+    .button.secondary:hover {
+      background: rgba(24, 61, 50, 0.06);
+    }
+
+    .map-note {
+      color: var(--muted);
+      font-size: 12px;
+      margin: 16px 0 0;
+    }
+
+    /* Downloads */
+    .download-section {
+      padding: 70px 0;
+    }
+
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .download-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 30px;
+      background: var(--white);
+      border: 1px solid var(--line);
+    }
+
+    .download-type {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+
+    .download-card h3 {
+      color: var(--forest);
+      margin: 0 0 10px;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .download-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 22px;
+      flex: 1;
+    }
+
+    .download-card .button {
+      margin-top: auto;
+    }
+
+    /* Safety */
+    .safety-section {
+      padding: 60px 0;
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .safety-section h2 {
+      margin: 0 0 18px;
+      font-size: 30px;
+      font-weight: 600;
+    }
+
+    .safety-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .safety-item {
+      border-top: 1px solid rgba(255, 255, 255, 0.35);
+      padding-top: 18px;
+    }
+
+    .safety-item h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .safety-item p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 14px;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 38px 0 20px;
+      background: #122f27;
+      color: var(--white);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 35px;
+      padding-bottom: 28px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand img {
+      width: 36px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .footer h3 {
+      font-size: 15px;
+      margin: 0 0 12px;
+      font-weight: 600;
+    }
+
+    .footer p,
+    .footer a {
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 13px;
+    }
+
+    .footer p {
+      margin: 5px 0;
+    }
+
+    .footer a {
+      overflow-wrap: anywhere;
+    }
+
+    .footer-bottom {
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 12px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1000px) {
+      .nav-right {
+        gap: 14px;
+      }
+      .nav-links {
+        gap: 13px;
+      }
+      .nav-links a {
+        font-size: 13px;
+      }
+      .nav-brand strong {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .nav-inner {
+        min-height: 72px;
+        flex-wrap: wrap;
+        padding: 10px 0;
+      }
+
+      .nav-brand {
+        flex: 1;
+      }
+
+      .nav-brand img {
+        width: 42px;
+        height: 46px;
+      }
+
+      .nav-right {
+        gap: 10px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        order: 3;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 0 12px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 11px 8px;
+        border-top: 1px solid var(--line);
+        font-size: 14px;
+      }
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-brand strong {
+        font-size: 12px;
+      }
+
+      .nav-brand span {
+        font-size: 11px;
+      }
+
+      .lang-btn {
+        padding: 6px 11px;
+      }
+
+      .hero {
+        min-height: 430px;
+      }
+
+      .hero-content {
+        padding: 60px 0 45px;
+      }
+
+      .hero-description {
+        font-size: 14px;
+      }
+
+      .intro {
+        padding-top: 45px;
+      }
+
+      .distance-grid,
+      .download-grid,
+      .safety-grid,
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+
+      .distance-card,
+      .download-card {
+        padding: 24px;
+      }
+
+      .map-section,
+      .download-section {
+        padding: 45px 0;
+      }
+
+      .map-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .map-frame {
+        height: 420px;
+      }
+
+      .map-actions {
+        flex-direction: column;
+      }
+
+      .map-actions .button {
+        width: 100%;
+        text-align: center;
+      }
+
+      .safety-section {
+        padding: 45px 0;
+      }
+
+      .footer-top {
+        gap: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation: เหมือนหน้า index.html 100% -->
+  <header class="site-header">
+    <div class="container nav-inner">
+
+      <a class="nav-brand" href="index.html" aria-label="หน้าแรก">
+        <img src="IMG/logo.png" alt="โลโก้อุทยานแห่งชาติ">
+        <div>
+          <strong
+            data-th="อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท"
+            data-en="Phu Hin Jom That–Phu Phra Bat National Park">
+            อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท
+          </strong>
+          <span
+            data-th="ธรรมชาติและการเดินทาง"
+            data-en="Nature and Travel">
+            ธรรมชาติและการเดินทาง
+          </span>
+        </div>
+      </a>
+
+      <div class="nav-right">
+        <nav class="nav-links" id="mainNavigation" aria-label="เมนูหลัก">
+          <a href="index.html"
+             data-th="หน้าแรก" data-en="Home">หน้าแรก</a>
+
+          <a href="about.html"
+             data-th="เกี่ยวกับอุทยาน" data-en="About">เกี่ยวกับอุทยาน</a>
+
+          <a href="places.html"
+             data-th="สถานที่ท่องเที่ยว" data-en="Places">สถานที่ท่องเที่ยว</a>
+
+          <a class="active" href="trails.html"
+             data-th="เส้นทางเดินป่า" data-en="Trails">เส้นทางเดินป่า</a>
+
+          <a href="visitor-info.html"
+             data-th="ข้อมูลผู้เข้าชม" data-en="Visitor Info">ข้อมูลผู้เข้าชม</a>
+        </nav>
+
+        <button class="lang-btn" id="languageToggle" type="button"
+                aria-label="เปลี่ยนภาษา">EN</button>
+
+        <button class="menu-toggle" id="menuToggle" type="button"
+                aria-label="เปิดเมนู" aria-expanded="false"
+                aria-controls="mainNavigation">☰</button>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <img class="hero-image" src="IMG/trail-5.jpg"
+           alt="ภูมิประเทศและเส้นทางศึกษาธรรมชาติ"
+           onerror="this.onerror=null;this.src='IMG/jomthat-1.jpg';">
+
+      <div class="hero-content">
+        <p class="eyebrow"
+           data-th="เดินช้า ๆ แล้วเรียนรู้ธรรมชาติ"
+           data-en="WALK SLOWLY, DISCOVER MORE">
+          เดินช้า ๆ แล้วเรียนรู้ธรรมชาติ
+        </p>
+
+        <h1 data-th="เส้นทางเดินป่า"
+            data-en="Hiking Trails">
+          เส้นทางเดินป่า
+        </h1>
+
+        <p class="hero-description"
+           data-th="สำรวจภูมิประเทศ เรียนรู้ธรรมชาติ และเตรียมพร้อมก่อนออกเดินทาง ด้วยข้อมูลเส้นทางและแผนที่สำหรับผู้มาเยือน"
+           data-en="Explore the landscape, discover nature, and prepare for your hike with trail information and maps.">
+          สำรวจภูมิประเทศ เรียนรู้ธรรมชาติ และเตรียมพร้อมก่อนออกเดินทาง
+          ด้วยข้อมูลเส้นทางและแผนที่สำหรับผู้มาเยือน
+        </p>
+      </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="intro">
+      <div class="container intro-grid">
+        <div>
+          <p class="section-label"
+             data-th="ก่อนออกเดินทาง"
+             data-en="BEFORE YOU GO">
+            ก่อนออกเดินทาง
+          </p>
+
+          <h2 data-th="เตรียมตัวให้พร้อม ก่อนก้าวเข้าสู่เส้นทางธรรมชาติ"
+              data-en="Prepare before entering the natural trail">
+            เตรียมตัวให้พร้อม ก่อนก้าวเข้าสู่เส้นทางธรรมชาติ
+          </h2>
+
+          <p data-th="ศึกษาระยะทางและแนวเส้นทางล่วงหน้า เตรียมน้ำดื่ม รองเท้าที่เหมาะสม และอุปกรณ์ที่จำเป็น ควรตรวจสอบสถานะการเปิดเส้นทางและคำแนะนำจากเจ้าหน้าที่ก่อนเดินทางทุกครั้ง"
+             data-en="Check the trail distance and route in advance. Bring drinking water, suitable footwear, and essential equipment. Always confirm trail access and ranger guidance before setting out.">
+            ศึกษาระยะทางและแนวเส้นทางล่วงหน้า เตรียมน้ำดื่ม รองเท้าที่เหมาะสม
+            และอุปกรณ์ที่จำเป็น ควรตรวจสอบสถานะการเปิดเส้นทางและคำแนะนำ
+            จากเจ้าหน้าที่ก่อนเดินทางทุกครั้ง
+          </p>
+        </div>
+
+        <div class="intro-note"
+             data-th="แผนที่และไฟล์ GPS บนหน้านี้จัดทำขึ้นเพื่อช่วยวางแผนการเดินทาง ควรตรวจสอบข้อมูลล่าสุดกับเจ้าหน้าที่ และไม่ใช้ GPS เพียงอย่างเดียวในการตัดสินใจเดินป่า"
+             data-en="The map and GPS files are provided to help with trip planning. Confirm current conditions with park staff and do not rely on GPS alone for navigation.">
+          แผนที่และไฟล์ GPS บนหน้านี้จัดทำขึ้นเพื่อช่วยวางแผนการเดินทาง
+          ควรตรวจสอบข้อมูลล่าสุดกับเจ้าหน้าที่ และไม่ใช้ GPS เพียงอย่างเดียว
+          ในการตัดสินใจเดินป่า
+        </div>
+      </div>
+    </section>
+
+    <!-- Trail distances -->
+    <section class="distance-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label"
+             data-th="ข้อมูลเส้นทาง"
+             data-en="TRAIL INFORMATION">
+            ข้อมูลเส้นทาง
+          </p>
+
+          <h2 data-th="เลือกรูปแบบการเดินที่เหมาะกับคุณ"
+              data-en="Choose your hiking route">
+            เลือกรูปแบบการเดินที่เหมาะกับคุณ
+          </h2>
+
+          <p data-th="ระยะทางและเวลาเดินโดยประมาณ อาจเปลี่ยนแปลงตามสภาพร่างกาย สภาพอากาศ และสภาพเส้นทาง"
+             data-en="Distances and walking times are estimates and may vary with fitness, weather, and trail conditions.">
+            ระยะทางและเวลาเดินโดยประมาณ อาจเปลี่ยนแปลงตามสภาพร่างกาย
+            สภาพอากาศ และสภาพเส้นทาง
+          </p>
+        </div>
+
+
+        <div class="distance-grid">
+          <article class="distance-card">
+            <span class="tag"
+                  data-th="ไปและกลับทางเดิม"
+                  data-en="Out-and-back">
+              ไปและกลับทางเดิม
+            </span>
+
+            <h3 data-th="เส้นทางไป–กลับทางเดิม"
+                data-en="Out-and-back trail">
+              เส้นทางไป–กลับทางเดิม
+            </h3>
+
+            <div class="number"
+                data-th="ประมาณ 4 กม."
+                data-en="Approx. 4 km">
+              ประมาณ 4 กม.
+            </div>
+
+            <p data-th="ใช้เวลาประมาณ 2–3 ชั่วโมง"
+              data-en="Estimated time: 2–3 hours">
+              ใช้เวลาประมาณ 2–3 ชั่วโมง
+            </p>
+
+            <p data-th="เส้นทางมีความลาดชันไม่มาก เดินได้ค่อนข้างง่าย เหมาะสำหรับผู้เริ่มต้นเดินป่า"
+              data-en="This route has gentle slopes and is relatively easy, making it suitable for beginner hikers.">
+              เส้นทางมีความลาดชันไม่มาก เดินได้ค่อนข้างง่าย
+              เหมาะสำหรับผู้เริ่มต้นเดินป่า
+            </p>
+          </article>
+
+          <article class="distance-card">
+            <span class="tag"
+                  data-th="เส้นทางวนรอบ"
+                  data-en="Loop trail">
+              เส้นทางวนรอบ
+            </span>
+
+            <h3 data-th="เส้นทางไป–กลับแบบวนรอบ"
+                data-en="Loop trail">
+              เส้นทางไป–กลับแบบวนรอบ
+            </h3>
+
+            <div class="number"
+                data-th="ประมาณ 5 กม."
+                data-en="Approx. 5 km">
+              ประมาณ 5 กม.
+            </div>
+
+            <p data-th="ใช้เวลาประมาณ 3–4 ชั่วโมง"
+              data-en="Estimated time: 3–4 hours">
+              ใช้เวลาประมาณ 3–4 ชั่วโมง
+            </p>
+
+            <p data-th="เส้นทางมีความท้าทายมากกว่า โดยต้องเดินขึ้นสู่สันเขาก่อน แล้วจึงเดินตามเส้นทางวนรอบลงกลับมา เหมาะสำหรับผู้ที่มีความพร้อมด้านร่างกาย"
+              data-en="This route is more challenging, with an uphill climb to the ridge before continuing along the loop and descending. It is suitable for hikers with adequate fitness.">
+              เส้นทางมีความท้าทายมากกว่า โดยต้องเดินขึ้นสู่สันเขาก่อน
+              แล้วจึงเดินตามเส้นทางวนรอบลงกลับมา
+              เหมาะสำหรับผู้ที่มีความพร้อมด้านร่างกาย
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Google My Maps -->
+    <section class="map-section" id="trail-map">
+      <div class="container">
+        <div class="map-heading">
+          <div>
+            <p class="section-label"
+               data-th="สำรวจแนวเส้นทาง"
+               data-en="EXPLORE THE TRAIL">
+              สำรวจแนวเส้นทาง
+            </p>
+
+            <h2 data-th="แผนที่เส้นทางเดินป่า"
+                data-en="Hiking Trail Map">
+              แผนที่เส้นทางเดินป่า
+            </h2>
+
+            <p data-th="เปิดดูแนวเส้นทางและจุดสำคัญผ่านแผนที่ออนไลน์"
+               data-en="Explore the route and key points on the online map.">
+              เปิดดูแนวเส้นทางและจุดสำคัญผ่านแผนที่ออนไลน์
+            </p>
+          </div>
+        </div>
+
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps/d/embed?mid=1YVVT9_yXnZwVr5N6-favm_KInjNCWvQ"
+            title="แผนที่เส้นทางศึกษาธรรมชาติภูหินจอมธาตุ"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="map-actions">
+          <a class="button"
+             href="https://www.google.com/maps/d/viewer?mid=1YVVT9_yXnZwVr5N6-favm_KInjNCWvQ&amp;usp=sharing"
+             target="_blank"
+             rel="noopener noreferrer"
+             data-th="เปิดแผนที่ขนาดใหญ่ ↗"
+             data-en="Open Full Map ↗">
+            เปิดแผนที่ขนาดใหญ่ ↗
+          </a>
+
+          <a class="button secondary"
+             href="MAP/hiking-trails.kmz"
+             download
+             data-th="ดาวน์โหลด Google Earth (KMZ) ↓"
+             data-en="Download Google Earth (KMZ) ↓">
+            ดาวน์โหลด Google Earth (KMZ) ↓
+          </a>
+
+          <a class="button secondary"
+            href="MAP/hiking-trails.gpx"
+            download="hiking-trails.gpx"
+            data-th="ดาวน์โหลดเส้นทาง GPS (GPX) ↓"
+            data-en="Download GPS Track (GPX) ↓">
+            ดาวน์โหลดเส้นทาง GPS (GPX) ↓
+          </a>
+        </div>
+
+        <p class="map-note"
+           data-th="ไฟล์ KMZ ใช้กับ Google Earth Pro และโปรแกรมที่รองรับ ส่วนไฟล์ GPX ใช้กับแอป GPS หรืออุปกรณ์ที่รองรับ โปรดตรวจสอบความเข้ากันได้ก่อนใช้งาน"
+           data-en="KMZ works with Google Earth Pro and compatible applications. GPX works with supported GPS apps and devices. Check compatibility before use.">
+          ไฟล์ KMZ ใช้กับ Google Earth Pro และโปรแกรมที่รองรับ
+          ส่วนไฟล์ GPX ใช้กับแอป GPS หรืออุปกรณ์ที่รองรับ
+          โปรดตรวจสอบความเข้ากันได้ก่อนใช้งาน
+        </p>
+      </div>
+    </section>
+
+    <!-- Downloads -->
+    <section class="download-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-label"
+             data-th="นำเส้นทางไปใช้งาน"
+             data-en="TAKE THE TRAIL WITH YOU">
+            นำเส้นทางไปใช้งาน
+          </p>
+
+          <h2 data-th="เลือกไฟล์ให้เหมาะกับอุปกรณ์"
+              data-en="Choose a file for your device">
+            เลือกไฟล์ให้เหมาะกับอุปกรณ์
+          </h2>
+
+          <p data-th="ดาวน์โหลดไฟล์เส้นทางไปเปิดในโปรแกรมหรือแอปที่รองรับ เพื่อใช้ประกอบการวางแผนเดินป่า"
+             data-en="Download the trail files for compatible software and apps to help plan your hike.">
+            ดาวน์โหลดไฟล์เส้นทางไปเปิดในโปรแกรมหรือแอปที่รองรับ
+            เพื่อใช้ประกอบการวางแผนเดินป่า
+          </p>
+        </div>
+
+        <div class="download-grid">
+          <article class="download-card">
+            <span class="download-type">KML / KMZ</span>
+
+            <h3 data-th="สำหรับ Google Earth Pro"
+                data-en="For Google Earth Pro">
+              สำหรับ Google Earth Pro
+            </h3>
+
+            <p data-th="เหมาะสำหรับผู้ที่ต้องการเปิดดูชั้นข้อมูลเส้นทาง จุดสำคัญ และตำแหน่งบนแผนที่ใน Google Earth Pro"
+               data-en="For viewing trail layers, key points, and locations in Google Earth Pro.">
+              เหมาะสำหรับผู้ที่ต้องการเปิดดูชั้นข้อมูลเส้นทาง จุดสำคัญ
+              และตำแหน่งบนแผนที่ใน Google Earth Pro
+            </p>
+
+            <a class="button secondary"
+               href="downloads/hiking-trails.kmz"
+               download
+               data-th="ดาวน์โหลดไฟล์ KMZ ↓"
+               data-en="Download KMZ ↓">
+              ดาวน์โหลดไฟล์ KMZ ↓
+            </a>
+          </article>
+
+          <article class="download-card">
+            <span class="download-type">GPS TRACK</span>
+
+            <h3 data-th="สำหรับแอป GPS และสมาร์ตวอทช์"
+                data-en="For GPS Apps and Smartwatches">
+              สำหรับแอป GPS และสมาร์ตวอทช์
+            </h3>
+
+            <p data-th="ไฟล์ GPX สามารถนำเข้าแอป GPS หรือแอปที่รองรับบนโทรศัพท์และสมาร์ตวอทช์บางรุ่นได้ วิธีนำเข้าและการใช้งานขึ้นอยู่กับแอปและอุปกรณ์"
+               data-en="GPX can be imported into compatible GPS apps and some smartwatch workflows. Import steps and features depend on the app and device.">
+              ไฟล์ GPX สามารถนำเข้าแอป GPS หรือแอปที่รองรับบนโทรศัพท์
+              และสมาร์ตวอทช์บางรุ่นได้ วิธีนำเข้าและการใช้งานขึ้นอยู่กับแอปและอุปกรณ์
+            </p>
+
+            <a class="button secondary"
+               href="downloads/hiking-trails.gpx"
+               download
+               data-th="ดาวน์โหลดไฟล์ GPX ↓"
+               data-en="Download GPX ↓">
+              ดาวน์โหลดไฟล์ GPX ↓
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Safety -->
+    <section class="safety-section">
+      <div class="container">
+        <p class="section-label"
+           style="color:#d6ddcf"
+           data-th="เดินป่าอย่างรับผิดชอบ · ไม่ทิ้งขยะตามเส้นทาง · ช่วยกันรักษาธรรมชาติ"
+           data-en="HIKE RESPONSIBLY · LEAVE NO LITTER · PROTECT NATURE">
+          เดินป่าอย่างรับผิดชอบ · ไม่ทิ้งขยะตามเส้นทาง · ช่วยกันรักษาธรรมชาติ
+        </p>
+
+        <h2 data-th="เตรียมพร้อมก่อนออกเดินทาง"
+            data-en="Prepare before your hike">
+          เตรียมพร้อมก่อนออกเดินทาง
+        </h2>
+
+        <div class="safety-grid">
+          <article class="safety-item">
+            <h3 data-th="ตรวจสอบสถานะเส้นทาง"
+                data-en="Check trail access">
+              ตรวจสอบสถานะเส้นทาง
+            </h3>
+
+            <p data-th="สอบถามเจ้าหน้าที่เกี่ยวกับการเปิด–ปิดเส้นทาง สภาพอากาศ และข้อควรระวังล่าสุด"
+               data-en="Ask park staff about trail access, weather, and current safety guidance.">
+              สอบถามเจ้าหน้าที่เกี่ยวกับการเปิด–ปิดเส้นทาง
+              สภาพอากาศ และข้อควรระวังล่าสุด
+            </p>
+          </article>
+
+          <article class="safety-item">
+            <h3 data-th="เตรียมน้ำและอุปกรณ์"
+                data-en="Bring water and equipment">
+              เตรียมน้ำและอุปกรณ์
+            </h3>
+
+            <p data-th="เตรียมน้ำดื่ม รองเท้าที่เหมาะสม โทรศัพท์ที่มีแบตเตอรี่ และอุปกรณ์จำเป็นให้เพียงพอ"
+               data-en="Bring enough drinking water, suitable footwear, a charged phone, and essential equipment.">
+              เตรียมน้ำดื่ม รองเท้าที่เหมาะสม โทรศัพท์ที่มีแบตเตอรี่
+              และอุปกรณ์จำเป็นให้เพียงพอ
+            </p>
+          </article>
+
+          <article class="safety-item">
+            <h3 data-th="ใช้ GPS อย่างเหมาะสม"
+                data-en="Use GPS carefully">
+              ใช้ GPS อย่างเหมาะสม
+            </h3>
+
+            <p data-th="ดาวน์โหลดข้อมูลไว้ล่วงหน้า และอย่าพึ่งพาสัญญาณโทรศัพท์หรือ GPS เพียงอย่างเดียว"
+               data-en="Save route data in advance and do not rely on mobile coverage or GPS alone.">
+              ดาวน์โหลดข้อมูลไว้ล่วงหน้า และอย่าพึ่งพาสัญญาณโทรศัพท์
+              หรือ GPS เพียงอย่างเดียว
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">
+            <img src="IMG/logo.png" alt="ตราอุทยานแห่งชาติ">
+            <strong data-th="อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท"
+                    data-en="Phu Hin Jom That–Phu Phra Bat National Park">
+              อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท
+            </strong>
+          </div>
+
+          <p data-th="พื้นที่เตรียมการจัดตั้งอุทยานแห่งชาติ"
+             data-en="Proposed National Park">
+            พื้นที่เตรียมการจัดตั้งอุทยานแห่งชาติ
+          </p>
+        </div>
+
+        <div>
+          <h3 data-th="No Gift Policy"
+              data-en="No Gift Policy">
+            No Gift Policy
+          </h3>
+
+          <p data-th="ทส. โปร่งใส และเป็นธรรม"
+             data-en="Transparency and fairness">
+            ทส. โปร่งใส และเป็นธรรม
+          </p>
+        </div>
+
+        <div>
+          <h3 data-th="ติดต่อเรา"
+              data-en="Contact Us">
+            ติดต่อเรา
+          </h3>
+
+          <p>โทร. 061-460-6624</p>
+          <p>
+            <a href="mailto:phupaya.nationalpark@gmail.com">
+              phupaya.nationalpark@gmail.com
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © <span id="currentYear"></span>
+        Phu Hin Jom That–Phu Phra Bat National Park · Website prototype
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // แสดงปีปัจจุบันอัตโนมัติ
+    document.getElementById('currentYear').textContent =
+      new Date().getFullYear();
+
+    // สลับภาษาไทยและอังกฤษ พร้อมซิงก์ localStorage
+    const languageToggle = document.getElementById("languageToggle");
+    let currentLanguage = localStorage.getItem("site_lang") || "th";
+
+    function updateLanguage(lang) {
+      document.documentElement.lang = lang;
+      languageToggle.textContent = lang === "th" ? "EN" : "TH";
+      document.querySelectorAll("[data-th][data-en]").forEach(function (element) {
+        element.textContent = element.getAttribute("data-" + lang);
+      });
+      localStorage.setItem("site_lang", lang);
+    }
+
+    updateLanguage(currentLanguage);
+
+    languageToggle.addEventListener("click", function () {
+      currentLanguage = currentLanguage === "th" ? "en" : "th";
+      updateLanguage(currentLanguage);
+    });
+
+    // เมนูโทรศัพท์
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNavigation = document.getElementById("mainNavigation");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = mainNavigation.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "ปิดเมนู" : "เปิดเมนู"
+      );
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    // ปิดเมนูหลังคลิกลิงก์
+    mainNavigation.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        mainNavigation.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+  </script>
+
+</body>
+</html>

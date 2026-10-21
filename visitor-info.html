@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#183d32">
+  <meta name="description" content="คู่มือสำหรับผู้มาเยือนอุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท">
+  <title>ข้อมูลผู้เข้าชม | อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --forest: #183d32;
+      --forest-light: #315b48;
+      --cream: #f7f5ee;
+      --sand: #e8dfcc;
+      --text: #24352c;
+      --muted: #68776d;
+      --white: #ffffff;
+      --line: rgba(24, 61, 50, 0.13);
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(24, 61, 50, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: 'IBM Plex Sans Thai', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1160px, 90%);
+      margin: 0 auto;
+    }
+
+    /* =========================================
+       NAVIGATION (ตรงตามหน้า index.html 100%)
+    ========================================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(247, 245, 238, 0.97);
+      border-bottom: 1px solid rgba(24, 61, 50, 0.1);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .nav-brand img {
+      width: 48px;
+      height: 52px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .nav-brand strong {
+      display: block;
+      color: var(--forest);
+      font-size: 15px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .nav-brand span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: var(--text);
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--forest-light);
+      font-weight: 600;
+    }
+
+    .lang-btn {
+      flex-shrink: 0;
+      border: 1px solid var(--forest);
+      background: transparent;
+      color: var(--forest);
+      border-radius: 30px;
+      padding: 7px 15px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .lang-btn:hover {
+      background: var(--forest);
+      color: white;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid rgba(24, 61, 50, 0.15);
+      background: white;
+      color: var(--forest);
+      border-radius: 10px;
+      width: 42px;
+      height: 42px;
+      cursor: pointer;
+      font-size: 23px;
+    }
+
+    /* =========================================
+       HERO (แบบพาดยาวเต็มหน้าจอ Full-width)
+    ========================================= */
+    .hero {
+      position: relative;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(13, 36, 28, 0.86) 0%,
+        rgba(13, 36, 28, 0.52) 60%,
+        rgba(13, 36, 28, 0.15) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(1160px, 90%);
+      margin: 0 auto;
+      padding: 85px 0 75px;
+      color: white;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: #e8dfcc;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      font-size: clamp(34px, 5vw, 56px);
+      font-weight: 600;
+      line-height: 1.35;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      font-size: 16px;
+      line-height: 1.85;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .button.primary {
+      background: var(--cream);
+      color: var(--forest);
+    }
+
+    .button.primary:hover {
+      background: white;
+      transform: translateY(-2px);
+    }
+
+    .button.secondary {
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .button.secondary:hover {
+      background: rgba(255, 255, 255, 0.16);
+      transform: translateY(-2px);
+    }
+
+    /* QUICK INFORMATION */
+    section {
+      padding: 72px 0;
+    }
+
+    .quick-info {
+      padding-top: 60px;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .quick-card {
+      padding: 28px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 15px rgba(24, 61, 50, 0.04);
+    }
+
+    .quick-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .icon-box {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: #edf0e8;
+      color: var(--forest);
+      font-size: 20px;
+    }
+
+    .quick-label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .quick-card h2 {
+      color: var(--forest);
+      font-size: 23px;
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .quick-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .office-phone, .staff-phones {
+      margin-bottom: 12px;
+    }
+
+    .phone-role {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .quick-card a {
+      color: var(--forest);
+      font-weight: 600;
+    }
+
+    .quick-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* SECTION HEADINGS */
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 32px;
+    }
+
+    .section-label {
+      color: var(--forest-light);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-heading h2 {
+      color: var(--forest);
+      font-size: clamp(26px, 3.5vw, 38px);
+      line-height: 1.4;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* VISITOR GUIDE */
+    .guide-section {
+      background: #eeeadf;
+    }
+
+    .guide-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 54px;
+      align-items: start;
+    }
+
+    .guide-intro {
+      position: sticky;
+      top: 120px;
+    }
+
+    .guide-intro h2 {
+      color: var(--forest);
+      font-size: clamp(27px, 3.4vw, 40px);
+      font-weight: 600;
+      line-height: 1.45;
+      margin-bottom: 16px;
+    }
+
+    .guide-intro p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 24px;
+    }
+
+    .guide-link {
+      display: inline-block;
+      color: var(--forest);
+      border-bottom: 1px solid var(--forest-light);
+      padding-bottom: 4px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .guide-link:hover {
+      color: var(--forest-light);
+    }
+
+    .guide-list {
+      background: white;
+      border-radius: var(--radius);
+      padding: 10px 32px;
+      border: 1px solid var(--line);
+    }
+
+    .guide-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 16px;
+      padding: 23px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guide-item:last-child {
+      border-bottom: 0;
+    }
+
+    .guide-number {
+      color: #9c8b68;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .guide-item h3 {
+      color: var(--forest);
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .guide-item p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* CONTACT */
+    .contact-section {
+      background: var(--cream);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .contact-intro h2 {
+      color: var(--forest);
+      font-size: clamp(28px, 3.5vw, 40px);
+      line-height: 1.4;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .contact-intro p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .contact-card {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .contact-card h3 {
+      color: var(--forest);
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 7px;
+    }
+
+    .contact-card a {
+      color: var(--forest-light);
+      font-size: 14px;
+      font-weight: 600;
+      overflow-wrap: anywhere;
+      border-bottom: 1px solid var(--sand);
+    }
+
+    .contact-card a:hover {
+      border-color: var(--forest);
+    }
+
+    /* REMINDER */
+    .reminder {
+      padding-top: 0;
+    }
+
+    .reminder-box {
+      background: var(--forest);
+      color: white;
+      border-radius: var(--radius);
+      padding: 36px 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .reminder-box h2 {
+      font-size: 24px;
+      line-height: 1.45;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .reminder-box p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 14px;
+      max-width: 680px;
+    }
+
+    .reminder-box .button {
+      flex-shrink: 0;
+      background: var(--cream);
+      color: var(--forest);
+    }
+
+    .reminder-box .button:hover {
+      background: white;
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #122f27;
+      color: white;
+      padding: 42px 0 22px;
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 28px;
+      padding-bottom: 26px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-brand img {
+      width: 36px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .footer-brand strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .footer-brand span {
+      display: block;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 11px;
+    }
+
+    .footer-contact {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .footer-contact p {
+      margin-bottom: 5px;
+    }
+
+    .footer-contact a:hover {
+      color: #e8dfcc;
+    }
+
+    .footer-policy {
+      color: #e8dfcc;
+      font-size: 12px;
+      text-align: right;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 17px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 11px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1000px) {
+      .nav-right {
+        gap: 14px;
+      }
+      .nav-links {
+        gap: 13px;
+      }
+      .nav-links a {
+        font-size: 13px;
+      }
+      .nav-brand strong {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .nav-inner {
+        min-height: 72px;
+        flex-wrap: wrap;
+        padding: 10px 0;
+      }
+
+      .nav-brand {
+        flex: 1;
+      }
+
+      .nav-brand img {
+        width: 42px;
+        height: 46px;
+      }
+
+      .nav-right {
+        gap: 10px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        order: 3;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 0 12px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 11px 8px;
+        border-top: 1px solid var(--line);
+        font-size: 14px;
+      }
+
+      .hero {
+        min-height: 460px;
+      }
+
+      .hero-content {
+        padding: 65px 0;
+      }
+
+      .hero::after {
+        background: linear-gradient(
+          0deg,
+          rgba(13, 36, 28, 0.9) 0%,
+          rgba(13, 36, 28, 0.52) 65%,
+          rgba(13, 36, 28, 0.15) 100%
+        );
+      }
+
+      .guide-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .guide-intro {
+        position: static;
+      }
+
+      .quick-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .reminder-box {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 28px 24px;
+      }
+
+      .footer-top {
+        flex-direction: column;
+      }
+
+      .footer-policy {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .nav-brand strong {
+        font-size: 12px;
+      }
+
+      .nav-brand span {
+        font-size: 11px;
+      }
+
+      .lang-btn {
+        padding: 6px 11px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      section {
+        padding: 48px 0;
+      }
+
+      .guide-list {
+        padding: 5px 20px;
+      }
+
+      .guide-item {
+        grid-template-columns: 30px 1fr;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION: ตรงตามหน้า index.html 100% -->
+  <header class="site-header">
+    <div class="container nav-inner">
+
+      <a class="nav-brand" href="index.html" aria-label="หน้าแรก">
+        <img src="IMG/logo.png" alt="โลโก้อุทยานแห่งชาติ">
+        <div>
+          <strong
+            data-th="อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท"
+            data-en="Phu Hin Jom That–Phu Phra Bat National Park">
+            อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท
+          </strong>
+          <span
+            data-th="ธรรมชาติและการเดินทาง"
+            data-en="Nature and Travel">
+            ธรรมชาติและการเดินทาง
+          </span>
+        </div>
+      </a>
+
+      <div class="nav-right">
+        <nav class="nav-links" id="mainNavigation" aria-label="เมนูหลัก">
+          <a href="index.html"
+             data-th="หน้าแรก" data-en="Home">หน้าแรก</a>
+
+          <a href="about.html"
+             data-th="เกี่ยวกับอุทยาน" data-en="About">เกี่ยวกับอุทยาน</a>
+
+          <a href="places.html"
+             data-th="สถานที่ท่องเที่ยว" data-en="Places">สถานที่ท่องเที่ยว</a>
+
+          <a href="trails.html"
+             data-th="เส้นทางเดินป่า" data-en="Trails">เส้นทางเดินป่า</a>
+
+          <a class="active" href="visitor-info.html"
+             data-th="ข้อมูลผู้เข้าชม" data-en="Visitor Info">ข้อมูลผู้เข้าชม</a>
+        </nav>
+
+        <button class="lang-btn" id="languageToggle" type="button"
+                aria-label="เปลี่ยนภาษา">EN</button>
+
+        <button class="menu-toggle" id="menuToggle" type="button"
+                aria-label="เปิดเมนู" aria-expanded="false"
+                aria-controls="mainNavigation">☰</button>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO: ปรับเป็น Full-width พาดยาวซ้อนภาพและข้อความแบบหน้าหลัก -->
+    <section class="hero">
+      <img
+        class="hero-image"
+        src="IMG/animal-6.jpg"
+        alt="ภูมิทัศน์ธรรมชาติของอุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท"
+        onerror="this.onerror=null;this.src='IMG/trail-5.jpg';"
+      >
+
+      <div class="hero-content">
+        <div class="eyebrow"
+             data-th="VISITOR GUIDE · คู่มือผู้มาเยือน"
+             data-en="VISITOR GUIDE · PLAN YOUR VISIT">
+          VISITOR GUIDE · คู่มือผู้มาเยือน
+        </div>
+
+        <h1 data-th="วางแผนการมาเยือน<br>ให้พร้อมก่อนออกเดินทาง"
+            data-en="Plan Your Visit<br>Before You Set Out">
+          วางแผนการมาเยือน<br>ให้พร้อมก่อนออกเดินทาง
+        </h1>
+
+        <p data-th="ข้อมูลสำคัญสำหรับการเข้าชมอุทยาน ตั้งแต่เวลาเปิดบริการ ค่าเข้าชม ไปจนถึงข้อแนะนำก่อนเดินทาง เพื่อให้คุณสัมผัสธรรมชาติได้อย่างมั่นใจ"
+           data-en="Find essential information about opening hours, admission, and preparing for your visit, so you can explore nature with confidence.">
+          ข้อมูลสำคัญสำหรับการเข้าชมอุทยาน ตั้งแต่เวลาเปิดบริการ
+          ค่าเข้าชม ไปจนถึงข้อแนะนำก่อนเดินทาง
+          เพื่อให้คุณสัมผัสธรรมชาติได้อย่างมั่นใจ
+        </p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="#quick-info"
+             data-th="ข้อมูลการเข้าชม ↓"
+             data-en="Visitor Information ↓">
+            ข้อมูลการเข้าชม ↓
+          </a>
+
+          <a class="button secondary" href="#contact"
+             data-th="ติดต่ออุทยาน"
+             data-en="Contact the Park">
+            ติดต่ออุทยาน
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK INFORMATION -->
+    <section class="quick-info" id="quick-info">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label"
+               data-th="AT A GLANCE"
+               data-en="AT A GLANCE">AT A GLANCE</div>
+
+          <h2 data-th="รู้ก่อนมาเยือน"
+              data-en="Know Before You Go">
+            รู้ก่อนมาเยือน
+          </h2>
+
+          <p data-th="ข้อมูลพื้นฐานที่ควรรู้ก่อนวางแผนเดินทางมายังอุทยาน"
+             data-en="Essential details to help you plan your visit to the park.">
+            ข้อมูลพื้นฐานที่ควรรู้ก่อนวางแผนเดินทางมายังอุทยาน
+          </p>
+        </div>
+
+        <div class="quick-grid">
+
+          <article class="quick-card">
+            <div class="quick-top">
+              <div class="icon-box" aria-hidden="true">◷</div>
+              <div class="quick-label"
+                   data-th="เวลาเปิดบริการ"
+                   data-en="Opening Hours">
+                เวลาเปิดบริการ
+              </div>
+            </div>
+
+            <h2 data-th="08.30–16.30 น."
+                data-en="08:30–16:30">
+              08.30–16.30 น.
+            </h2>
+
+            <p data-th="เปิดให้บริการทุกวัน รวมวันหยุดนักขัตฤกษ์"
+               data-en="Open daily, including public holidays.">
+              เปิดให้บริการทุกวัน รวมวันหยุดนักขัตฤกษ์
+            </p>
+          </article>
+
+          <article class="quick-card">
+            <div class="quick-top">
+              <div class="icon-box" aria-hidden="true">◎</div>
+              <div class="quick-label"
+                   data-th="ค่าเข้าชม"
+                   data-en="Admission">
+                ค่าเข้าชม
+              </div>
+            </div>
+
+            <h2 data-th="ไม่มีค่าธรรมเนียม"
+                data-en="No Admission Fee">
+              ไม่มีค่าธรรมเนียม
+            </h2>
+
+            <p data-th="ตามข้อมูลการให้บริการที่ได้รับแจ้ง"
+               data-en="Based on the current visitor information provided.">
+              ตามข้อมูลการให้บริการที่ได้รับแจ้ง
+            </p>
+          </article>
+
+          <article class="quick-card">
+            <div class="quick-top">
+              <div class="icon-box" aria-hidden="true">☎</div>
+              <div class="quick-label"
+                  data-th="ติดต่อสอบถาม"
+                  data-en="Contact us">
+                ติดต่อสอบถาม
+              </div>
+            </div>
+
+            <div class="office-phone">
+              <p class="phone-role"
+                data-th="สำนักงานอุทยานแห่งชาติ (เบอร์หลัก)"
+                data-en="National Park Office (Main number)">
+                สำนักงานอุทยานแห่งชาติ (เบอร์หลัก)
+              </p>
+              <h2><a href="tel:0614606624">061-460-6624</a></h2>
+            </div>
+
+            <div class="staff-phones">
+              <p class="phone-role"
+                data-th="เบอร์ติดต่อเจ้าหน้าที่"
+                data-en="Park staff">
+                เบอร์ติดต่อเจ้าหน้าที่
+              </p>
+              <p><a href="tel:0933929170">093-392-9170</a></p>
+              <p><a href="tel:0616374271">061-637-4271</a></p>
+            </div>
+
+            <p data-th="ติดต่อสำนักงานหรือเจ้าหน้าที่เพื่อสอบถามข้อมูลก่อนเดินทาง"
+              data-en="Contact the office or park staff for information before your visit.">
+              ติดต่อสำนักงานหรือเจ้าหน้าที่เพื่อสอบถามข้อมูลก่อนเดินทาง
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- VISITOR GUIDE -->
+    <section class="guide-section" id="guide">
+      <div class="container">
+
+        <div class="guide-layout">
+
+          <div class="guide-intro">
+            <div class="section-label"
+                 data-th="YOUR VISIT CHECKLIST"
+                 data-en="YOUR VISIT CHECKLIST">
+              YOUR VISIT CHECKLIST
+            </div>
+
+            <h2 data-th="เตรียมตัวให้พร้อม<br>แล้วออกไปสัมผัสธรรมชาติ"
+                data-en="Get Ready<br>to Explore Nature">
+              เตรียมตัวให้พร้อม<br>แล้วออกไปสัมผัสธรรมชาติ
+            </h2>
+
+            <p data-th="การเตรียมตัวล่วงหน้าช่วยให้การท่องเที่ยวปลอดภัยและสะดวกขึ้น อย่าลืมตรวจสอบสภาพพื้นที่ก่อนออกเดินทาง"
+               data-en="Planning ahead helps make your visit safer and easier. Always check local conditions before setting out.">
+              การเตรียมตัวล่วงหน้าช่วยให้การท่องเที่ยวปลอดภัย
+              และสะดวกขึ้น อย่าลืมตรวจสอบสภาพพื้นที่ก่อนออกเดินทาง
+            </p>
+
+            <a class="guide-link" href="trails.html"
+               data-th="ดูข้อมูลเส้นทางเดินป่า →"
+               data-en="Explore Hiking Trails →">
+              ดูข้อมูลเส้นทางเดินป่า →
+            </a>
+          </div>
+
+          <div class="guide-list">
+
+            <article class="guide-item">
+              <div class="guide-number">01</div>
+              <div>
+                <h3 data-th="ตรวจสอบเวลาและประกาศอุทยาน"
+                    data-en="Check Opening Hours and Park Notices">
+                  ตรวจสอบเวลาและประกาศอุทยาน
+                </h3>
+
+                <p data-th="ตรวจสอบข้อมูลล่าสุดก่อนเดินทาง โดยเฉพาะประกาศปิดพื้นที่หรือข้อจำกัดในการเข้าชม"
+                   data-en="Check the latest information before travelling, especially any closures or access restrictions.">
+                  ตรวจสอบข้อมูลล่าสุดก่อนเดินทาง โดยเฉพาะประกาศปิดพื้นที่
+                  หรือข้อจำกัดในการเข้าชม
+                </p>
+              </div>
+            </article>
+
+            <article class="guide-item">
+              <div class="guide-number">02</div>
+              <div>
+                <h3 data-th="เตรียมน้ำดื่มและรองเท้าที่เหมาะสม"
+                    data-en="Bring Water and Suitable Footwear">
+                  เตรียมน้ำดื่มและรองเท้าที่เหมาะสม
+                </h3>
+
+                <p data-th="หากเดินบนเส้นทางธรรมชาติ ควรเตรียมน้ำดื่ม รองเท้าเกาะพื้นได้ดี และอุปกรณ์ที่เหมาะกับสภาพอากาศ"
+                   data-en="For nature trails, bring drinking water, suitable footwear, and equipment for the weather.">
+                  หากเดินบนเส้นทางธรรมชาติ ควรเตรียมน้ำดื่ม
+                  รองเท้าเกาะพื้นได้ดี และอุปกรณ์ที่เหมาะกับสภาพอากาศ
+                </p>
+              </div>
+            </article>
+
+            <article class="guide-item">
+              <div class="guide-number">03</div>
+              <div>
+                <h3 data-th="ปฏิบัติตามเส้นทางที่กำหนด"
+                    data-en="Stay on Designated Trails">
+                  ปฏิบัติตามเส้นทางที่กำหนด
+                </h3>
+
+                <p data-th="ไม่เดินออกนอกเส้นทางหรือเข้าพื้นที่ที่มีประกาศปิด และปฏิบัติตามคำแนะนำของเจ้าหน้าที่"
+                   data-en="Do not leave designated trails or enter closed areas. Follow park staff instructions.">
+                  ไม่เดินออกนอกเส้นทางหรือเข้าพื้นที่ที่มีประกาศปิด
+                  และปฏิบัติตามคำแนะนำของเจ้าหน้าที่
+                </p>
+              </div>
+            </article>
+
+            <article class="guide-item">
+              <div class="guide-number">04</div>
+              <div>
+                <h3 data-th="ช่วยกันรักษาธรรมชาติ"
+                    data-en="Help Protect Nature">
+                  ช่วยกันรักษาธรรมชาติ
+                </h3>
+
+                <p data-th="นำขยะกลับออกจากพื้นที่ ไม่เก็บพืชหรือสิ่งของธรรมชาติ และไม่รบกวนสัตว์ป่า"
+                   data-en="Take rubbish with you, leave natural objects where they are, and do not disturb wildlife.">
+                  นำขยะกลับออกจากพื้นที่ ไม่เก็บพืชหรือสิ่งของธรรมชาติ
+                  และไม่รบกวนสัตว์ป่า
+                </p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+
+        <div class="contact-layout">
+
+          <div class="contact-intro">
+            <div class="section-label"
+                 data-th="CONTACT THE PARK"
+                 data-en="CONTACT THE PARK">
+              CONTACT THE PARK
+            </div>
+
+            <h2 data-th="มีข้อสงสัย?<br>ติดต่อเราได้เลย"
+                data-en="Have Questions?<br>Get in Touch">
+              มีข้อสงสัย?<br>ติดต่อเราได้เลย
+            </h2>
+
+            <p data-th="สอบถามข้อมูลการเข้าชม การเดินทาง หรือรายละเอียดอื่น ๆ ก่อนวางแผนมาเยือนอุทยาน"
+               data-en="Contact the park for visitor information, travel enquiries, or other details before your visit.">
+              สอบถามข้อมูลการเข้าชม การเดินทาง หรือรายละเอียดอื่น ๆ
+              ก่อนวางแผนมาเยือนอุทยาน
+            </p>
+          </div>
+
+          <div class="contact-list">
+
+            <article class="contact-card">
+              <div class="icon-box" aria-hidden="true">☎</div>
+              <div>
+                <h3 data-th="โทรศัพท์"
+                    data-en="Telephone">
+                  โทรศัพท์
+                </h3>
+
+                <p data-th="สอบถามข้อมูลกับเจ้าหน้าที่"
+                   data-en="Contact park staff">
+                  สอบถามข้อมูลกับเจ้าหน้าที่
+                </p>
+
+                <a href="tel:0614606624">061-460-6624</a>
+              </div>
+            </article>
+
+            <article class="contact-card">
+              <div class="icon-box" aria-hidden="true">✉</div>
+              <div>
+                <h3 data-th="อีเมล"
+                    data-en="Email">
+                  อีเมล
+                </h3>
+
+                <p data-th="ส่งคำถามหรือสอบถามข้อมูลเพิ่มเติม"
+                   data-en="Send an enquiry or request further information">
+                  ส่งคำถามหรือสอบถามข้อมูลเพิ่มเติม
+                </p>
+
+                <a href="mailto:phupaya.nationalpark@gmail.com">
+                  phupaya.nationalpark@gmail.com
+                </a>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REMINDER -->
+    <section class="reminder">
+      <div class="container">
+        <div class="reminder-box">
+
+          <div>
+            <h2 data-th="เที่ยวอย่างใส่ใจ<br>เก็บความประทับใจกลับไป"
+                data-en="Travel Thoughtfully<br>Leave Nature Undisturbed">
+              เที่ยวอย่างใส่ใจ<br>เก็บความประทับใจกลับไป
+            </h2>
+
+            <p data-th="สภาพอากาศและเงื่อนไขการเข้าพื้นที่อาจเปลี่ยนแปลงได้ โปรดตรวจสอบข้อมูลกับเจ้าหน้าที่ก่อนเดินทาง"
+               data-en="Weather and access conditions may change. Please check with park staff before travelling.">
+              สภาพอากาศและเงื่อนไขการเข้าพื้นที่อาจเปลี่ยนแปลงได้
+              โปรดตรวจสอบข้อมูลกับเจ้าหน้าที่ก่อนเดินทาง
+            </p>
+          </div>
+
+          <a class="button" href="places.html"
+             data-th="สำรวจแหล่งท่องเที่ยว →"
+             data-en="Explore Places →">
+            สำรวจแหล่งท่องเที่ยว →
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <img src="IMG/logo.png" alt="โลโก้อุทยานแห่งชาติ">
+
+          <div>
+            <strong data-th="อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท"
+                    data-en="Phu Hin Jom That–Phu Phra Bat National Park">
+              อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท
+            </strong>
+
+            <span data-th="อุทยานแห่งชาติ"
+                  data-en="National Park">
+              อุทยานแห่งชาติ
+            </span>
+          </div>
+        </div>
+
+        <div class="footer-contact">
+          <p>
+            <span data-th="ติดต่อเรา: " data-en="Contact: ">ติดต่อเรา: </span>
+            <a href="tel:0614606624">061-460-6624</a>
+          </p>
+
+          <p>
+            <a href="mailto:phupaya.nationalpark@gmail.com">
+              phupaya.nationalpark@gmail.com
+            </a>
+          </p>
+        </div>
+
+        <div class="footer-policy"
+             data-th="No Gift Policy<br>ทส. โปร่งใส และเป็นธรรม"
+             data-en="No Gift Policy<br>Transparency and fairness">
+          No Gift Policy<br>ทส. โปร่งใส และเป็นธรรม
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>
+          © <span id="currentYear"></span>
+          Phu Hin Jom That–Phu Phra Bat National Park
+        </span>
+
+        <span data-th="ต้นแบบเว็บไซต์ประชาสัมพันธ์"
+              data-en="Website prototype">
+          ต้นแบบเว็บไซต์ประชาสัมพันธ์
+        </span>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // แสดงปีปัจจุบัน
+    document.getElementById('currentYear').textContent =
+      new Date().getFullYear();
+
+    // สลับภาษาไทยและอังกฤษ พร้อมซิงก์ค่าด้วย localStorage
+    const languageToggle = document.getElementById("languageToggle");
+    let currentLanguage = localStorage.getItem("site_lang") || "th";
+
+    function updateLanguage(lang) {
+      document.documentElement.lang = lang;
+      languageToggle.textContent = lang === "th" ? "EN" : "TH";
+      document.querySelectorAll("[data-th][data-en]").forEach(function (element) {
+        element.innerHTML = element.getAttribute("data-" + lang);
+      });
+      localStorage.setItem("site_lang", lang);
+    }
+
+    updateLanguage(currentLanguage);
+
+    languageToggle.addEventListener("click", function () {
+      currentLanguage = currentLanguage === "th" ? "en" : "th";
+      updateLanguage(currentLanguage);
+    });
+
+    // เมนูสำหรับโทรศัพท์
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNavigation = document.getElementById("mainNavigation");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = mainNavigation.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "ปิดเมนู" : "เปิดเมนู"
+      );
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    // ปิดเมนูหลังคลิกลิงก์
+    mainNavigation.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        mainNavigation.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+  </script>
+
+</body>
+</html>

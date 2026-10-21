@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#183d32">
+  <meta name="description" content="ประวัติ ที่ตั้ง อาณาเขต และข้อมูลพื้นที่อุทยานแห่งชาติเตรียมการภูหินจอมธาตุ–ภูพระบาท">
+  <title>เกี่ยวกับอุทยาน | อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --forest: #183d32;
+      --forest-light: #315b48;
+      --cream: #f7f5ee;
+      --sand: #e8dfcc;
+      --text: #24352c;
+      --muted: #68776d;
+      --white: #ffffff;
+      --line: #e4e7df;
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(24, 61, 50, 0.09);
+      --sage: #eaece2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: "IBM Plex Sans Thai", sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      width: min(1160px, 90%);
+      margin: 0 auto;
+    }
+
+    /* =========================================
+       NAVIGATION (ตรงตามหน้า index.html 100%)
+    ========================================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(247, 245, 238, 0.97);
+      border-bottom: 1px solid rgba(24, 61, 50, 0.1);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .nav-brand img {
+      width: 48px;
+      height: 52px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .nav-brand strong {
+      display: block;
+      color: var(--forest);
+      font-size: 15px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .nav-brand span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: var(--text);
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--forest-light);
+      font-weight: 600;
+    }
+
+    .lang-btn {
+      flex-shrink: 0;
+      border: 1px solid var(--forest);
+      background: transparent;
+      color: var(--forest);
+      border-radius: 30px;
+      padding: 7px 15px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .lang-btn:hover {
+      background: var(--forest);
+      color: white;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--forest);
+      border-radius: 10px;
+      width: 42px;
+      height: 42px;
+      cursor: pointer;
+      font-size: 23px;
+    }
+
+    /* =========================
+       EDITORIAL INTRO
+    ========================= */
+    .page-intro {
+      padding: 68px 0 55px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--forest-light);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .page-intro h1 {
+      color: var(--forest);
+      font-size: clamp(34px, 5vw, 56px);
+      font-weight: 600;
+      line-height: 1.35;
+      margin-bottom: 22px;
+    }
+
+    .intro-description {
+      max-width: 730px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: clamp(280px, 49vw, 570px);
+      object-fit: cover;
+      object-position: center 55%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .image-caption {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 10px;
+      text-align: right;
+    }
+
+    /* =========================
+       ARTICLE COMMON
+    ========================= */
+    .article-section {
+      padding: 92px 0;
+    }
+
+    .article-section + .article-section {
+      border-top: 1px solid var(--line);
+    }
+
+    .article-narrow {
+      width: min(780px, 100%);
+      margin: 0 auto;
+    }
+
+    .section-label {
+      color: var(--forest-light);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      color: var(--forest);
+      font-size: clamp(27px, 4vw, 39px);
+      line-height: 1.45;
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+
+    .article-copy {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .article-copy p {
+      margin-bottom: 18px;
+    }
+
+    .article-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .editorial-image {
+      width: 100%;
+      height: auto;
+      max-height: 560px;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      margin-top: 38px;
+      border-radius: var(--radius);
+    }
+
+    /* =========================
+       HISTORY
+    ========================= */
+    .history-section {
+      padding-top: 82px;
+    }
+
+    .history-note {
+      margin-top: 26px;
+      padding: 17px 21px;
+      border-left: 3px solid #8b9b67;
+      background: #eeeade;
+      color: var(--muted);
+      font-size: 13px;
+      border-radius: 0 10px 10px 0;
+    }
+
+    /* =========================
+       LOCATION
+    ========================= */
+    .location-section {
+      background: #eaece2;
+    }
+
+    .location-lead {
+      max-width: 780px;
+      margin: 0 auto 36px;
+    }
+
+    .location-facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 36px;
+      margin-top: 34px;
+      border-top: 1px solid #cfd5c9;
+    }
+
+    .location-fact {
+      padding: 20px 0;
+      border-bottom: 1px solid #cfd5c9;
+    }
+
+    .location-fact span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .location-fact strong {
+      display: block;
+      color: var(--forest);
+      font-size: 17px;
+      font-weight: 500;
+      overflow-wrap: anywhere;
+    }
+
+    /* =========================
+       MAP PLACEHOLDERS
+    ========================= */
+    .map-block {
+      margin-top: 42px;
+    }
+
+    .map-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 20px;
+      margin-bottom: 14px;
+    }
+
+    .map-heading h3 {
+      color: var(--forest);
+      font-size: 19px;
+      font-weight: 600;
+    }
+
+    .map-heading span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .map-placeholder {
+      min-height: 340px;
+      padding: 35px;
+      background: #eeece3;
+      border: 1px dashed #aeb9a8;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .map-placeholder-inner {
+      max-width: 430px;
+    }
+
+    .map-placeholder .map-symbol {
+      font-size: 35px;
+      color: var(--forest-light);
+      margin-bottom: 12px;
+    }
+
+    .map-placeholder h4 {
+      color: var(--forest);
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .map-placeholder p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .map-caption {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 12px;
+    }
+
+    /* =========================
+       AREA & RESPONSIBILITY
+    ========================= */
+    .area-section {
+      padding: 82px 0;
+    }
+
+    .area-feature {
+      background: var(--forest);
+      color: var(--white);
+      padding: 38px 42px;
+      margin-top: 32px;
+      border-radius: var(--radius);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .area-feature .section-label {
+      color: #c1d0ac;
+    }
+
+    .area-feature h3 {
+      font-size: 24px;
+      line-height: 1.5;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .area-feature p {
+      color: #d1ddd3;
+      font-size: 14px;
+    }
+
+    .area-number {
+      border-left: 1px solid rgba(255,255,255,0.3);
+      padding-left: 35px;
+    }
+
+    .area-number strong {
+      display: block;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.4;
+      font-weight: 500;
+      overflow-wrap: anywhere;
+    }
+
+    .area-number span {
+      color: #d1ddd3;
+      font-size: 13px;
+    }
+
+    /* =========================
+       ACCESS
+    ========================= */
+    .access-section {
+      background: #eeece3;
+    }
+
+    .access-image {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      margin: 30px 0;
+      border-radius: var(--radius);
+    }
+
+    .access-details {
+      width: min(780px, 100%);
+      margin: 0 auto;
+    }
+
+    .access-list {
+      padding-left: 22px;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    .access-list li {
+      padding-left: 5px;
+      margin-bottom: 10px;
+    }
+
+    /* =========================
+       COMMUNITIES
+    ========================= */
+    .community-intro {
+      max-width: 780px;
+      margin-bottom: 44px;
+    }
+
+    .community-main-map {
+      margin-top: 28px;
+    }
+
+    .community-secondary-maps {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      margin-top: 38px;
+    }
+
+    .community-map-card h3 {
+      color: var(--forest);
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .community-map-card .map-placeholder {
+      min-height: 260px;
+      padding: 22px;
+    }
+
+    .community-map-card .map-caption {
+      font-size: 11px;
+    }
+
+    .community-note {
+      margin-top: 42px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+    footer {
+      background: #102b23;
+      color: white;
+      padding: 45px 0 25px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 30px;
+      padding-bottom: 30px;
+    }
+
+    footer p {
+      color: #c6d2c9;
+      font-size: 13px;
+      margin-top: 8px;
+      overflow-wrap: anywhere;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.18);
+      padding-top: 18px;
+      color: #aebfb3;
+      font-size: 11px;
+    }
+
+    /* =========================================
+       RESPONSIVE & MOBILE BREAKPOINTS
+    ========================================= */
+    @media (max-width: 1000px) {
+      .nav-right {
+        gap: 14px;
+      }
+      .nav-links {
+        gap: 13px;
+      }
+      .nav-links a {
+        font-size: 13px;
+      }
+      .nav-brand strong {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .nav-inner {
+        min-height: 72px;
+        flex-wrap: wrap;
+        padding: 10px 0;
+      }
+
+      .nav-brand {
+        flex: 1;
+      }
+
+      .nav-brand img {
+        width: 42px;
+        height: 46px;
+      }
+
+      .nav-right {
+        gap: 10px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        order: 3;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 0 12px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 11px 8px;
+        border-top: 1px solid var(--line);
+        font-size: 14px;
+      }
+
+      .article-section {
+        padding: 68px 0;
+      }
+
+      .area-feature {
+        padding: 30px;
+        gap: 25px;
+      }
+
+      .community-secondary-maps {
+        gap: 18px;
+      }
+
+      .map-placeholder {
+        min-height: 280px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .nav-brand strong {
+        font-size: 12px;
+      }
+
+      .nav-brand span {
+        font-size: 11px;
+      }
+
+      .lang-btn {
+        padding: 6px 11px;
+      }
+
+      .page-intro {
+        padding: 48px 0 40px;
+      }
+
+      .page-intro h1 {
+        font-size: 34px;
+      }
+
+      .intro-description {
+        font-size: 14px;
+      }
+
+      .article-section {
+        padding: 55px 0;
+      }
+
+      .article-copy {
+        font-size: 14px;
+      }
+
+      .editorial-image {
+        margin-top: 25px;
+      }
+
+      .location-facts {
+        grid-template-columns: 1fr;
+      }
+
+      .area-feature {
+        grid-template-columns: 1fr;
+        padding: 27px 24px;
+      }
+
+      .area-number {
+        border-left: none;
+        border-top: 1px solid rgba(255,255,255,0.3);
+        padding: 22px 0 0;
+      }
+
+      .map-heading {
+        display: block;
+      }
+
+      .map-heading span {
+        display: block;
+        margin-top: 4px;
+      }
+
+      .map-placeholder {
+        min-height: 230px;
+        padding: 22px 16px;
+      }
+
+      .community-secondary-maps {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .community-map-card .map-placeholder {
+        min-height: 240px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION: ตรงกับ index.html ทุกประการ -->
+  <header class="site-header">
+    <div class="container nav-inner">
+
+      <a class="nav-brand" href="index.html" aria-label="หน้าแรก">
+        <img src="IMG/logo.png" alt="โลโก้อุทยานแห่งชาติ">
+        <div>
+          <strong
+            data-th="อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท"
+            data-en="Phu Hin Jom That–Phu Phra Bat National Park">
+            อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท
+          </strong>
+          <span
+            data-th="ธรรมชาติและการเดินทาง"
+            data-en="Nature and Travel">
+            ธรรมชาติและการเดินทาง
+          </span>
+        </div>
+      </a>
+
+      <div class="nav-right">
+        <nav class="nav-links" id="mainNavigation" aria-label="เมนูหลัก">
+          <a href="index.html"
+             data-th="หน้าแรก" data-en="Home">หน้าแรก</a>
+
+          <a class="active" href="about.html"
+             data-th="เกี่ยวกับอุทยาน" data-en="About">เกี่ยวกับอุทยาน</a>
+
+          <a href="places.html"
+             data-th="สถานที่ท่องเที่ยว" data-en="Places">สถานที่ท่องเที่ยว</a>
+
+          <a href="trails.html"
+             data-th="เส้นทางเดินป่า" data-en="Trails">เส้นทางเดินป่า</a>
+
+          <a href="visitor-info.html"
+             data-th="ข้อมูลผู้เข้าชม" data-en="Visitor Info">ข้อมูลผู้เข้าชม</a>
+        </nav>
+
+        <button class="lang-btn" id="languageToggle" type="button"
+                aria-label="เปลี่ยนภาษา">EN</button>
+
+        <button class="menu-toggle" id="menuToggle" type="button"
+                aria-label="เปิดเมนู" aria-expanded="false"
+                aria-controls="mainNavigation">☰</button>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PAGE INTRO -->
+    <section class="page-intro">
+      <div class="container">
+        <span class="eyebrow"
+          data-th="ABOUT THE PARK"
+          data-en="ABOUT THE PARK">
+          ABOUT THE PARK
+        </span>
+
+        <h1
+          data-th="รู้จักอุทยาน"
+          data-en="Discover the Park">
+          รู้จักอุทยาน
+        </h1>
+
+        <p class="intro-description"
+          data-th="ทำความรู้จักประวัติความเป็นมา ที่ตั้ง ภูมิประเทศ และชุมชนโดยรอบอุทยานแห่งชาติเตรียมการภูหินจอมธาตุ–ภูพระบาท ผ่านข้อมูลและเรื่องราวของพื้นที่"
+          data-en="Discover the history, location, landscape, and surrounding communities of Phu Hin Jom That–Phu Phra Bat National Park preparation area.">
+          ทำความรู้จักประวัติความเป็นมา ที่ตั้ง ภูมิประเทศ และชุมชนโดยรอบอุทยานแห่งชาติเตรียมการภูหินจอมธาตุ–ภูพระบาท ผ่านข้อมูลและเรื่องราวของพื้นที่
+        </p>
+      </div>
+    </section>
+
+    <!-- HERO IMAGE -->
+    <div class="container">
+      <img
+        class="hero-image"
+        src="IMG/jomthat-8.jpg"
+        alt="ภูมิทัศน์บริเวณภูหินจอมธาตุ–ภูพระบาท"
+        onerror="this.style.display='none'">
+
+      <p class="image-caption"
+        data-th="ภูมิทัศน์ของพื้นที่อุทยาน"
+        data-en="Landscape of the park area">
+        ภูมิทัศน์ของพื้นที่อุทยาน
+      </p>
+    </div>
+
+<!-- 1.1 HISTORY -->
+    <section class="article-section history-section">
+      <div class="container">
+        <div class="article-narrow">
+          <p class="section-label"
+            data-th="01 / HISTORY"
+            data-en="01 / HISTORY">
+            01 / HISTORY
+          </p>
+
+          <h2 class="section-title"
+            data-th="ประวัติความเป็นมา"
+            data-en="History">
+            ประวัติความเป็นมา
+          </h2>
+
+          <div class="article-copy">
+            <!-- ย่อหน้า 1: จุดเริ่มต้น -->
+            <p
+              data-th="ประวัติความเป็นมาของผืนป่าแห่งนี้เริ่มต้นจากการเป็นพื้นที่ป่าอนุรักษ์ที่มีความอุดมสมบูรณ์และมีความสำคัญในเชิงนิเวศและธรณีวิทยาอย่างสูง ต่อมาทางราชการได้เห็นสมควรในการยกระดับพื้นที่เพื่อการอนุรักษ์อย่างยั่งยืน จึงได้ริเริ่มโครงการจัดตั้งอุทยานแห่งชาติขึ้น อุทยานแห่งชาติภูหินจอมธาตุ - ภูพระบาท (เตรียมการ) โดยทำการหลอมรวมและผนวกพื้นที่ป่าอนุรักษ์เดิมที่เป็นวนอุทยานสำคัญ 3 แห่งในพื้นที่จังหวัดอุดรธานีเข้าด้วยกัน ได้แก่ วนอุทยานภูหินจอมธาตุ วนอุทยานภูผาแดง และ วนอุทยานพุทธบาทบัวบก ซึ่งการรวมป่าอนุรักษ์ทั้งสามแห่งนี้ช่วยให้ผืนป่าขนาดใหญ่เชื่อมต่อกันเป็นระบบนิเวศป่าที่สมบูรณ์ สามารถดูแลสัตว์ป่าและทรัพยากรธรรมชาติในภาพรวมได้อย่างมีประสิทธิภาพสูงสุด"
+              data-en="The history of this forest area began as a fertile conservation forest holding immense ecological and geological significance. Later, the government recognized the necessity of elevating the area's status for sustainable conservation, leading to the initiation of a national park establishment project. This was achieved by merging and consolidating three major existing forest parks in Udon Thani Province: Phu Hin Chom That Forest Park, Phu Pha Daeng Forest Park, and Phutthabat Bua Bok Forest Park. The integration of these three conservation areas connected the vast forest into a unified, complete ecosystem, allowing for highly efficient, comprehensive management of wildlife and natural resources.">
+              ประวัติความเป็นมาของผืนป่าแห่งนี้เริ่มต้นจากการเป็นพื้นที่ป่าอนุรักษ์ที่มีความอุดมสมบูรณ์และมีความสำคัญในเชิงนิเวศและธรณีวิทยาอย่างสูง ต่อมาทางราชการได้เห็นสมควรในการยกระดับพื้นที่เพื่อการอนุรักษ์อย่างยั่งยืน จึงได้ริเริ่มโครงการจัดตั้งอุทยานแห่งชาติขึ้น อุทยานแห่งชาติภูหินจอมธาตุ - ภูพระบาท (เตรียมการ) โดยทำการหลอมรวมและผนวกพื้นที่ป่าอนุรักษ์เดิมที่เป็นวนอุทยานสำคัญ 3 แห่งในพื้นที่จังหวัดอุดรธานีเข้าด้วยกัน ได้แก่ วนอุทยานภูหินจอมธาตุ วนอุทยานภูผาแดง และ วนอุทยานพุทธบาทบัวบก ซึ่งการรวมป่าอนุรักษ์ทั้งสามแห่งนี้ช่วยให้ผืนป่าขนาดใหญ่เชื่อมต่อกันเป็นระบบนิเวศป่าที่สมบูรณ์ สามารถดูแลสัตว์ป่าและทรัพยากรธรรมชาติในภาพรวมได้อย่างมีประสิทธิภาพสูงสุด
+            </p>
+
+            <!-- ย่อหน้า 2: การกำหนดชื่อ -->
+            <p
+              data-th="ในช่วงแรกเริ่มของการบูรณาการผืนป่าทับซ้อนดังกล่าว ทางกรมอุทยานแห่งชาติ สัตว์ป่า และพันธุ์พืช ได้กำหนดให้ใช้ชื่อว่า อุทยานแห่งชาติภูผายา เพื่อเป็นชื่อเรียกอย่างเป็นทางการในขั้นตอนเตรียมการจัดตั้ง อย่างไรก็ตาม ต่อมาเพื่อให้ชื่อของอุทยานแห่งชาติสะท้อนถึงอัตลักษณ์ที่แท้จริง ความโดดเด่นทางธรรมชาติ และสอดคล้องกับแหล่งท่องเที่ยวแลนด์มาร์กสำคัญที่ผู้คนรู้จักกันเป็นอย่างดี จึงได้มีการพิจารณาเปลี่ยนชื่อไปเป็น อุทยานแห่งชาติภูหินจอมธาตุ - ภูพระบาท ในเวลาต่อมา โดยคำว่า "ภูหินจอมธาตุ" ตั้งตามกลุ่มหินทรายสูงใหญ่ที่มีรูปร่างแปลกตาคล้ายเจดีย์ในฝั่งอำเภอกุดจับ ขณะที่คำว่า "ภูพระบาท" ตั้งตามพื้นที่ทางประวัติศาสตร์และวัฒนธรรมอันเป็นที่ประดิษฐานรอยพระพุทธบาทโบราณตามแนวเทือกเขาภูพานน้อยในฝั่งอำเภอบ้านผือ"
+              data-en="During the initial phase of integrating these overlapping forest boundaries, the Department of National Parks, Wildlife and Plant Conservation initially designated the area as Phu Pha Ya National Park as its official name during the preparation process. Subsequently, to ensure the national park's name reflected its true identity, outstanding natural features, and aligned with the well-known landmark tourist destinations, the name was later changed to Phu Hin Chom That - Phu Phrabat National Park. The name "Phu Hin Chom That" is derived from the massive, peculiarly shaped sandstone rock formations resembling stupas on the Kut Chap District side, while "Phu Phrabat" represents the historical and cultural area housing ancient Buddha footprints along the Phu Phan Noi mountain range on the Ban Phue District side.">
+              ในช่วงแรกเริ่มของการบูรณาการผืนป่าทับซ้อนดังกล่าว ทางกรมอุทยานแห่งชาติ สัตว์ป่า และพันธุ์พืช ได้กำหนดให้ใช้ชื่อว่า อุทยานแห่งชาติภูผายา เพื่อเป็นชื่อเรียกอย่างเป็นทางการในขั้นตอนเตรียมการจัดตั้ง อย่างไรก็ตาม ต่อมาเพื่อให้ชื่อของอุทยานแห่งชาติสะท้อนถึงอัตลักษณ์ที่แท้จริง ความโดดเด่นทางธรรมชาติ และสอดคล้องกับแหล่งท่องเที่ยวแลนด์มาร์กสำคัญที่ผู้คนรู้จักกันเป็นอย่างดี จึงได้มีการพิจารณาเปลี่ยนชื่อไปเป็น อุทยานแห่งชาติภูหินจอมธาตุ - ภูพระบาท ในเวลาต่อมา โดยคำว่า "ภูหินจอมธาตุ" ตั้งตามกลุ่มหินทรายสูงใหญ่ที่มีรูปร่างแปลกตาคล้ายเจดีย์ในฝั่งอำเภอกุดจับ ขณะที่คำว่า "ภูพระบาท" ตั้งตามพื้นที่ทางประวัติศาสตร์และวัฒนธรรมอันเป็นที่ประดิษฐานรอยพระพุทธบาทโบราณตามแนวเทือกเขาภูพานน้อยในฝั่งอำเภอบ้านผือ
+            </p>
+
+            <!-- ย่อหน้า 3: การกำหนดแนวเขต -->
+            <p
+              data-th="ปัจจุบันอุทยานแห่งชาติแห่งนี้ยังคงอยู่ในระหว่างขั้นตอนการเตรียมการประกาศจัดตั้งอย่างเป็นทางการ เนื่องจากแนวเขตพื้นที่บางส่วนยังไม่คงตัวและอยู่ในระหว่างกระบวนการรังวัด ปรับปรุง และพิจารณาปักปันแนวเขตร่วมกับชุมชนเพื่อไม่ให้กระทบต่อที่ดินทำกินของราษฎรโดยรอบ การหลอมรวมพื้นที่อนุรักษ์เดิมมาสู่การบริหารจัดการผืนป่าร่วมกันในปัจจุบัน ไม่เพียงแต่ทำให้ผืนป่าแห่งนี้เป็นแหล่งเรียนรู้ วิจัยทางธรรมชาติวิทยา และแหล่งต้นน้ำลำธารที่สำคัญของภูมิภาคเท่านั้น แต่ยังส่งเสริมการท่องเที่ยวเชิงนิเวศและการอนุรักษ์ความหลากหลายทางชีวภาพอย่างยั่งยืน"
+              data-en="Currently, this national park remains in the statutory preparation stage for its official declaration, as certain boundary sections are not yet finalized and are undergoing surveying, verification, and boundary demarcation in collaboration with local communities to avoid encroaching upon agricultural lands. The consolidation of former protected areas into a unified conservation framework not only establishes this landscape as a vital center for natural science education, research, and headwater catchment in the region, but also promotes sustainable ecotourism and biodiversity conservation.">
+              ปัจจุบันอุทยานแห่งชาติแห่งนี้ยังคงอยู่ในระหว่างขั้นตอนการเตรียมการประกาศจัดตั้งอย่างเป็นทางการ เนื่องจากแนวเขตพื้นที่บางส่วนยังไม่คงตัวและอยู่ในระหว่างกระบวนการรังวัด ปรับปรุง และพิจารณาปักปันแนวเขตร่วมกับชุมชนเพื่อไม่ให้กระทบต่อที่ดินทำกินของราษฎรโดยรอบ การหลอมรวมพื้นที่อนุรักษ์เดิมมาสู่การบริหารจัดการผืนป่าร่วมกันในปัจจุบัน ไม่เพียงแต่ทำให้ผืนป่าแห่งนี้เป็นแหล่งเรียนรู้ วิจัยทางธรรมชาติวิทยา และแหล่งต้นน้ำลำธารที่สำคัญของภูมิภาคเท่านั้น แต่ยังส่งเสริมการท่องเที่ยวเชิงนิเวศและการอนุรักษ์ความหลากหลายทางชีวภาพอย่างยั่งยืน
+            </p>
+          </div>
+        </div>
+
+        <img
+          class="editorial-image"
+          src="IMG/view-15.jpg"
+          alt="ทิวทัศน์ธรรมชาติในพื้นที่"
+          style="width: 100%; object-fit: cover; object-position: center 95%;"
+          loading="lazy"
+          onerror="this.style.display='none'">
+      </div>
+    </section>
+
+<!-- 1.2 LOCATION AND BOUNDARIES -->
+    <section class="article-section location-section">
+      <div class="container">
+        <div class="location-lead">
+          <p class="section-label"
+            data-th="02 / LOCATION"
+            data-en="02 / LOCATION">
+            02 / LOCATION
+          </p>
+
+          <h2 class="section-title"
+            data-th="ที่ตั้งและอาณาเขต"
+            data-en="Location and Boundaries">
+            ที่ตั้งและอาณาเขต
+          </h2>
+
+          <div class="article-copy">
+            <p
+              data-th="อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท (เตรียมการ) ตั้งอยู่บนแนวเทือกเขาหินทราย ครอบคลุมพื้นที่รอยต่อ 3 จังหวัดในภาคตะวันออกเฉียงเหนือตอนบน ได้แก่ จังหวัดอุดรธานี จังหวัดหนองบัวลำภู และจังหวัดเลย โดยมีที่ทำการอุทยานฯ ตั้งอยู่ที่บ้านห้วยยางคำ ตำบลกุดจับ อำเภอกุดจับ จังหวัดอุดรธานี"
+              data-en="Phu Hin Jom That–Phu Phra Bat National Park (Proposed) is situated along a sandstone mountain range spanning the intersection of three northeastern provinces: Udon Thani, Nong Bua Lamphu, and Loei. The park headquarters is located at Ban Huai Yang Kham, Kut Chap Subdistrict, Kut Chap District, Udon Thani Province.">
+              อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท (เตรียมการ) ตั้งอยู่บนแนวเทือกเขาหินทราย ครอบคลุมพื้นที่รอยต่อ 3 จังหวัดในภาคตะวันออกเฉียงเหนือตอนบน ได้แก่ จังหวัดอุดรธานี จังหวัดหนองบัวลำภู และจังหวัดเลย โดยมีที่ทำการอุทยานฯ ตั้งอยู่ที่บ้านห้วยยางคำ ตำบลกุดจับ อำเภอกุดจับ จังหวัดอุดรธานี
+            </p>
+
+            <p
+              data-th="พื้นที่อนุรักษ์แห่งนี้เป็นป่าต้นน้ำลำธารสำคัญของลุ่มน้ำห้วยหลวงและลุ่มน้ำโขง โอบล้อมด้วยภูมิทัศน์ป่าเต็งรัง ลานหินทรายกว้างใหญ่ หน้าผาสูงชัน และแหล่งโบราณคดีที่เชื่อมโยงวิถีชีวิต ชุมชนท้องถิ่น และธรรมชาติเข้าไว้ด้วยกัน"
+              data-en="This conservation area serves as a vital headwater catchment for the Huai Luang and Mekong river basins, characterized by dry dipterocarp woodlands, expansive sandstone terraces, scenic cliffs, and archaeological landscapes that harmoniously link local culture with nature.">
+              พื้นที่อนุรักษ์แห่งนี้เป็นป่าต้นน้ำลำธารสำคัญของลุ่มน้ำห้วยหลวงและลุ่มน้ำโขง โอบล้อมด้วยภูมิทัศน์ป่าเต็งรัง ลานหินทรายกว้างใหญ่ หน้าผาสูงชัน และแหล่งโบราณคดีที่เชื่อมโยงวิถีชีวิต ชุมชนท้องถิ่น และธรรมชาติเข้าไว้ด้วยกัน
+            </p>
+          </div>
+        </div>
+
+        <!-- เหลือ 2 ช่อง: จังหวัด และ ที่ตั้งที่ทำการอุทยานฯ -->
+        <div class="location-facts">
+          <div class="location-fact">
+            <span data-th="จังหวัดที่ครอบคลุม" data-en="Provinces">จังหวัดที่ครอบคลุม</span>
+            <strong
+              data-th="อุดรธานี, หนองบัวลำภู, เลย"
+              data-en="Udon Thani, Nong Bua Lamphu, Loei">
+              อุดรธานี, หนองบัวลำภู, เลย
+            </strong>
+          </div>
+
+          <div class="location-fact">
+            <span data-th="ที่ตั้งที่ทำการอุทยานฯ" data-en="Headquarters Location">ที่ตั้งที่ทำการอุทยานฯ</span>
+            <strong
+              data-th="ต.กุดจับ อ.กุดจับ จ.อุดรธานี"
+              data-en="Kut Chap, Kut Chap, Udon Thani">
+              ต.กุดจับ อ.กุดจับ จ.อุดรธานี
+            </strong>
+          </div>
+        </div>
+
+        <div class="map-block">
+          <div class="map-heading">
+            <h3
+              data-th="แผนที่แสดงที่ตั้งและแนวเขตอุทยานแห่งชาติ"
+              data-en="Park Boundary and Location Map">
+              แผนที่แสดงที่ตั้งและแนวเขตอุทยานแห่งชาติ
+            </h3>
+
+            <span
+              data-th="แผนที่แนวเขต"
+              data-en="Boundary Map">
+              แผนที่แนวเขต
+            </span>
+          </div>
+
+          <!-- ฝังแผนที่ Google My Maps -->
+          <div class="map-frame" style="height: 520px; overflow: hidden; border-radius: var(--radius); border: 1px solid var(--line); background: var(--sand); box-shadow: var(--shadow);">
+            <iframe
+              src="https://www.google.com/maps/d/embed?mid=1Bu1EUjkCh9CJDD0gPs9GB_dsq9Ik0Ik"
+              width="100%"
+              height="100%"
+              style="border: 0; display: block;"
+              title="แผนที่แนวเขตอุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท"
+              loading="lazy"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <!-- ลิงก์เปิดแผนที่ขนาดใหญ่ -->
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 14px;">
+            <p class="map-caption" style="margin: 0;"
+              data-th="ข้อมูลแนวเขตอุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท (เตรียมการ)"
+              data-en="Boundary data of Phu Hin Jom That–Phu Phra Bat National Park (Proposed)">
+              ข้อมูลแนวเขตอุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท (เตรียมการ)
+            </p>
+
+            <a class="text-link"
+               href="https://www.google.com/maps/d/viewer?mid=1Bu1EUjkCh9CJDD0gPs9GB_dsq9Ik0Ik&usp=sharing"
+               target="_blank"
+               rel="noopener noreferrer"
+               style="font-size: 13px;">
+              <span data-th="เปิดแผนที่ขนาดใหญ่" data-en="Open Full Map">เปิดแผนที่ขนาดใหญ่</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- 1.3 AREA AND 1.4 RESPONSIBILITY -->
+    <section class="area-section">
+      <div class="container">
+        <p class="section-label"
+          data-th="03 / AREA &amp; ADMINISTRATION"
+          data-en="03 / AREA &amp; ADMINISTRATION">
+          03 / AREA &amp; ADMINISTRATION
+        </p>
+
+        <h2 class="section-title"
+          data-th="ขนาดพื้นที่และหน่วยงานที่รับผิดชอบ"
+          data-en="Area and Administration">
+          ขนาดพื้นที่และหน่วยงานที่รับผิดชอบ
+        </h2>
+
+        <div class="article-copy">
+          <p
+            data-th="ปัจจุบันพื้นที่อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท อยู่ระหว่างกระบวนการเตรียมการจัดตั้ง โดยมีเนื้อที่ดำเนินการเบื้องต้นประมาณ 92,068 ไร่ (ประมาณ 147.3 ตารางกิโลเมตร) ซึ่งขนาดพื้นที่และแนวเขตที่แน่นอนอาจมีการปรับปรุงตามผลการสำรวจรังวัด การตรวจสอบการถือครองที่ดิน และการกันแนวเขตร่วมกับชุมชนท้องถิ่นต่อไป"
+            data-en="Phu Hin Jom That–Phu Phra Bat National Park is currently in the statutory preparation stage, with an initial operational area of approximately 92,068 rai (approx. 147.3 square kilometers). The exact area and boundaries remain subject to adjustment based on ongoing cadastral surveys, land tenure verifications, and community boundary demarcations.">
+            ปัจจุบันพื้นที่อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท อยู่ระหว่างกระบวนการเตรียมการจัดตั้ง โดยมีเนื้อที่ดำเนินการเบื้องต้นประมาณ 92,068 ไร่ (ประมาณ 147.3 ตารางกิโลเมตร) ซึ่งขนาดพื้นที่และแนวเขตที่แน่นอนอาจมีการปรับปรุงตามผลการสำรวจรังวัด การตรวจสอบการถือครองที่ดิน และการกันแนวเขตร่วมกับชุมชนท้องถิ่นต่อไป
+          </p>
+        </div>
+
+        <!-- กล่องไฮไลต์ตัวเลขขนาดพื้นที่ -->
+        <div class="area-feature">
+          <div>
+            <p class="section-label"
+              data-th="PREPARATION AREA"
+              data-en="PREPARATION AREA">
+              PREPARATION AREA
+            </p>
+
+            <h3
+              data-th="พื้นที่เตรียมการจัดตั้ง"
+              data-en="Proposed Park Area">
+              พื้นที่เตรียมการจัดตั้ง
+            </h3>
+
+            <p
+              data-th="ตัวเลขเบื้องต้นในกระบวนการจัดตั้ง (อาจมีการเปลี่ยนแปลงตามการสำรวจแนวเขตจริง)"
+              data-en="Preliminary figure during establishment process (subject to change upon final boundary survey).">
+              ตัวเลขเบื้องต้นในกระบวนการจัดตั้ง (อาจมีการเปลี่ยนแปลงตามการสำรวจแนวเขตจริง)
+            </p>
+          </div>
+
+          <div class="area-number">
+            <strong
+              data-th="~92,068 ไร่"
+              data-en="~92,068 Rai">
+              ~92,068 ไร่
+            </strong>
+
+            <span
+              data-th="ประมาณ 147.3 ตารางกิโลเมตร (เบื้องต้น)"
+              data-en="Approx. 147.3 sq.km. (Preliminary)">
+              ประมาณ 147.3 ตารางกิโลเมตร (เบื้องต้น)
+            </span>
+          </div>
+        </div>
+
+        <!-- รายละเอียดหน่วยงานรับผิดชอบ -->
+        <div class="map-block">
+          <p class="section-label"
+            data-th="RESPONSIBLE AGENCY"
+            data-en="RESPONSIBLE AGENCY">
+            RESPONSIBLE AGENCY
+          </p>
+
+          <h3 class="section-title"
+            style="font-size:24px; margin-bottom:12px;"
+            data-th="สำนักบริหารพื้นที่อนุรักษ์ที่ 10 (อุดรธานี)"
+            data-en="Protected Areas Regional Office 10 (Udon Thani)">
+            สำนักบริหารพื้นที่อนุรักษ์ที่ 10 (อุดรธานี)
+          </h3>
+
+          <div class="article-copy">
+            <p
+              data-th="สังกัดกรมอุทยานแห่งชาติ สัตว์ป่า และพันธุ์พืช กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม มีหน้าที่รับผิดชอบในการคุ้มครอง ดูแลรักษา ฟื้นฟูทรัพยากรธรรมชาติ และพัฒนาเป็นแหล่งเรียนรู้ทางธรรมชาติสำหรับประชาชน"
+              data-en="Under the Department of National Parks, Wildlife and Plant Conservation, Ministry of Natural Resources and Environment, responsible for protecting, preserving, restoring natural resources, and managing the area as a public nature education site.">
+              สังกัดกรมอุทยานแห่งชาติ สัตว์ป่า และพันธุ์พืช กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม มีหน้าที่รับผิดชอบในการคุ้มครอง ดูแลรักษา ฟื้นฟูทรัพยากรธรรมชาติ และพัฒนาเป็นแหล่งเรียนรู้ทางธรรมชาติสำหรับประชาชน
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- 1.5 ACCESS -->
+    <section class="article-section access-section">
+      <div class="container">
+        <div class="access-details">
+          <p class="section-label"
+            data-th="04 / GETTING HERE"
+            data-en="04 / GETTING HERE">
+            04 / GETTING HERE
+          </p>
+
+          <h2 class="section-title"
+            data-th="การคมนาคมและการเข้าถึงพื้นที่"
+            data-en="Transportation and Access">
+            การคมนาคมและการเข้าถึงพื้นที่
+          </h2>
+
+          <div class="article-copy">
+            <p
+              data-th="การเดินทางมายังที่ทำการอุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท สามารถเดินทางโดยรถยนต์ส่วนตัวได้อย่างสะดวก โดยใช้เส้นทางหลักจากตัวเมืองอุดรธานี มุ่งหน้าสู่อำเภอกุดจับ และเชื่อมต่อไปยังที่ทำการอุทยานฯ ที่บ้านห้วยยางคำ ตำบลกุดจับ"
+              data-en="Traveling to the headquarters of Phu Hin Jom That–Phu Phra Bat National Park is easily accessible by private vehicle via the main highway from Udon Thani city center towards Kut Chap District, connecting to the park headquarters at Ban Huai Yang Kham, Kut Chap Subdistrict.">
+              การเดินทางมายังที่ทำการอุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท สามารถเดินทางโดยรถยนต์ส่วนตัวได้อย่างสะดวก โดยใช้เส้นทางหลักจากตัวเมืองอุดรธานี มุ่งหน้าสู่อำเภอกุดจับ และเชื่อมต่อไปยังที่ทำการอุทยานฯ ที่บ้านห้วยยางคำ ตำบลกุดจับ
+            </p>
+          </div>
+        </div>
+
+        <img
+          class="access-image"
+          src="IMG/Maps.png"
+          alt="เส้นทางคมนาคมเข้าสู่พื้นที่ธรรมชาติ"
+          loading="lazy"
+          onerror="this.style.display='none'">
+
+        <div class="access-details">
+          <h3
+            style="color:var(--forest); font-size:20px; margin-bottom:12px;"
+            data-th="ข้อมูลเส้นทางหลัก"
+            data-en="Main Route Information">
+            ข้อมูลเส้นทางหลัก
+          </h3>
+
+          <ul class="access-list">
+            <li>
+              <strong data-th="จุดเริ่มต้น:" data-en="Starting point:">จุดเริ่มต้น:</strong>
+              <span
+                data-th="ตัวเมืองอุดรธานี (บริเวณวงเวียนน้ำพุ / ท่าอากาศยานนานาชาติอุดรธานี)"
+                data-en="Udon Thani City Center (Fountain Circle / Udon Thani International Airport)">
+                ตัวเมืองอุดรธานี (บริเวณวงเวียนน้ำพุ / ท่าอากาศยานนานาชาติอุดรธานี)
+              </span>
+            </li>
+
+            <li>
+              <strong data-th="เส้นทางเดินรถ:" data-en="Driving route:">เส้นทางเดินรถ:</strong>
+              <span
+                data-th="ใช้ทางหลวงแผ่นดินหมายเลข 2263 (อุดรธานี–กุดจับ) มุ่งหน้าสู่อำเภอกุดจับ จากนั้นเลี้ยวเข้าสู่ทางหลวงชนบทตามป้ายบอกทางเพื่อมุ่งหน้าไปยังที่ทำการอุทยานฯ บ้านห้วยยางคำ"
+                data-en="Take Highway 2263 (Udon Thani–Kut Chap) towards Kut Chap District, then turn onto rural roads following directional signs towards the park headquarters at Ban Huai Yang Kham.">
+                ใช้ทางหลวงแผ่นดินหมายเลข 2263 (อุดรธานี–กุดจับ) มุ่งหน้าสู่อำเภอกุดจับ จากนั้นเลี้ยวเข้าสู่ทางหลวงชนบทตามป้ายบอกทางเพื่อมุ่งหน้าไปยังที่ทำการอุทยานฯ บ้านห้วยยางคำ
+              </span>
+            </li>
+
+            <li>
+              <strong data-th="ระยะทางและเวลาเดินทาง:" data-en="Distance & Travel Time:">ระยะทางและเวลาเดินทาง:</strong>
+              <span
+                data-th="ระยะทางประมาณ 30–35 กิโลเมตร ใช้เวลาเดินทางโดยรถยนต์ประมาณ 35–45 นาที"
+                data-en="Approximately 30–35 kilometers, taking around 35–45 minutes by car.">
+                ระยะทางประมาณ 30–35 กิโลเมตร ใช้เวลาเดินทางโดยรถยนต์ประมาณ 35–45 นาที
+              </span>
+            </li>
+          </ul>
+
+          <div style="margin-top: 20px;">
+            <a class="text-link"
+               href="https://www.google.com/maps/search/?api=1&query=อุทยานแห่งชาติภูหินจอมธาตุ-ภูพระบาท"
+               target="_blank"
+               rel="noopener noreferrer"
+               style="font-size: 14px;">
+              <span data-th="เปิดเส้นทางนำทางด้วย Google Maps" data-en="Get Directions on Google Maps">เปิดเส้นทางนำทางด้วย Google Maps</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <p class="history-note"
+            data-th="ข้อแนะนำ: เส้นทางบางช่วงและทางขึ้นสู่จุดชมวิวบนเขาอาจเป็นทางลาดชันหรือทางลูกรัง ควรขับขี่ด้วยความระมัดระวัง และตรวจสอบสภาพรถรวมถึงสภาพอากาศก่อนออกเดินทางทุกครั้ง"
+            data-en="Travel Advice: Some sections and approach roads to mountain viewpoints include steep inclines or unpaved surfaces. Drive with caution and check vehicle conditions and weather before traveling.">
+            ข้อแนะนำ: เส้นทางบางช่วงและทางขึ้นสู่จุดชมวิวบนเขาอาจเป็นทางลาดชันหรือทางลูกรัง ควรขับขี่ด้วยความระมัดระวัง และตรวจสอบสภาพรถรวมถึงสภาพอากาศก่อนออกเดินทางทุกครั้ง
+          </p>
+        </div>
+      </div>
+    </section>
+
+<!-- 05 / GEOLOGY AND SOIL -->
+    <section class="article-section geology-section">
+      <div class="container">
+        <div class="split-feature" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: center; margin-bottom: 32px;">
+          <div>
+            <p class="section-label"
+              data-th="05 / GEOLOGY &amp; SOIL"
+              data-en="05 / GEOLOGY &amp; SOIL">
+              05 / GEOLOGY &amp; SOIL
+            </p>
+
+            <h2 class="section-title"
+              data-th="ธรณีวิทยาและลักษณะดิน"
+              data-en="Geology and Soil Characteristics">
+              ธรณีวิทยาและลักษณะดิน
+            </h2>
+
+            <div class="article-copy">
+              <p
+                data-th="พื้นที่อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท (เตรียมการ) มีรากฐานทางธรณีวิทยาอยู่ใน &ldquo;กลุ่มหินโคราช&rdquo; (Khorat Group) ซึ่งเป็นหินตะกอนที่ทับถมกันบนแผ่นดินมาอย่างยาวนานตั้งแต่ยุคไทรแอสซิก จูแรสซิก จนถึงครีเทเชียส วางตัวรองรับอยู่เหนือชั้นหินฐานโบราณ ก่อกำเนิดเป็นแนวเทือกเขาหินทราย ลานหิน และหน้าผาสูงชันอันเป็นเอกลักษณ์ของขอบที่ราบสูงโคราช"
+                data-en="The geological foundation of Phu Hin Jom That–Phu Phra Bat National Park lies within the &ldquo;Khorat Group,&rdquo; a sequence of continental sedimentary rocks deposited across the Triassic, Jurassic, and Cretaceous periods, sculpting unique sandstone cliffs and plateaus.">
+                พื้นที่อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท (เตรียมการ) มีรากฐานทางธรณีวิทยาอยู่ใน “กลุ่มหินโคราช” (Khorat Group) ซึ่งเป็นหินตะกอนที่ทับถมกันบนแผ่นดินมาอย่างยาวนานตั้งแต่ยุคไทรแอสซิก จูแรสซิก จนถึงครีเทเชียส วางตัวรองรับอยู่เหนือชั้นหินฐานโบราณ ก่อกำเนิดเป็นแนวเทือกเขาหินทราย ลานหิน และหน้าผาสูงชันอันเป็นเอกลักษณ์ของขอบที่ราบสูงโคราช
+              </p>
+
+              <p
+                data-th="แบ่งออกเป็น 9 หมวดหินตามลำดับอายุ ได้แก่ หมวดหินห้วยหินลาด, น้ำพอง, ภูกระดึง, พระวิหาร, เสาขัว, ภูพาน, โคกกรวด, มหาสารคาม และภูทอก ผ่านการกัดกร่อนจากลมและน้ำจนเกิดเป็นประติมากรรมหินทรายและเพิงผาธรรมชาติ"
+                data-en="Divided into nine formations from Huai Hin Lat to Phu Thok, weathered by wind and water into dramatic sandstone monuments and shelters.">
+                แบ่งออกเป็น 9 หมวดหินตามลำดับอายุ ได้แก่ หมวดหินห้วยหินลาด, น้ำพอง, ภูกระดึง, พระวิหาร, เสาขัว, ภูพาน, โคกกรวด, มหาสารคาม และภูทอก ผ่านการกัดกร่อนจากลมและน้ำจนเกิดเป็นประติมากรรมหินทรายและเพิงผาธรรมชาติ
+              </p>
+
+              <p
+                data-th="สำหรับสภาพดิน ส่วนใหญ่เป็นกลุ่มชุดดินในพื้นที่ดอน เช่น ชุดดินโคราช ชุดดินท่ายาง ชุดดินน้ำพอง รวมถึงพื้นที่ลาดชันเชิงซ้อน และมีดินพื้นที่ลุ่มอย่างชุดดินร้อยเอ็ดและชุดดินราชบุรีตามแนวหุบเขาและแหล่งน้ำ"
+                data-en="Soils are predominantly upland series such as Korat, Tha Yang, and Nam Phong series alongside slope complexes, with lowland soils like Roi Et series along valley basins.">
+                สำหรับสภาพดิน ส่วนใหญ่เป็นกลุ่มชุดดินในพื้นที่ดอน เช่น ชุดดินโคราช ชุดดินท่ายาง ชุดดินน้ำพอง รวมถึงพื้นที่ลาดชันเชิงซ้อน และมีดินพื้นที่ลุ่มอย่างชุดดินร้อยเอ็ดและชุดดินราชบุรีตามแนวหุบเขาและแหล่งน้ำ
+              </p>
+            </div>
+          </div>
+
+          <!-- ช่องใส่ภาพธรณีสัณฐาน/ชั้นหิน -->
+          <div class="feature-image-box" style="position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); aspect-ratio: 4/3; background: var(--sand);">
+            <img
+              src="IMG/view-12.jpg"
+              alt="ลักษณะลานหินทรายและหน้าผาธรรมชาติ"
+              style="width: 100%; height: 100%; object-fit: cover; display: block;"
+              loading="lazy"
+              onerror="this.parentElement.style.background='var(--sand)';">
+            <div style="position: absolute; bottom: 0; inset-inline: 0; padding: 12px 16px; background: linear-gradient(transparent, rgba(0,0,0,0.65)); color: #fff; font-size: 13px;">
+              <span data-th="ลานหินทรายธรรมชาติในกลุ่มหินโคราช" data-en="Sandstone terraces and natural cliffs of the Khorat Group">
+                ลานหินทรายธรรมชาติในกลุ่มหินโคราช
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="location-facts" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+          <div class="location-fact">
+            <span data-th="โครงสร้างธรณี" data-en="Geological Unit">โครงสร้างธรณี</span>
+            <strong data-th="กลุ่มหินโคราช (9 หมวดหิน)" data-en="Khorat Group (9 Formations)">กลุ่มหินโคราช (9 หมวดหิน)</strong>
+          </div>
+          <div class="location-fact">
+            <span data-th="ลักษณะทางกายภาพ" data-en="Physical Formations">ลักษณะทางกายภาพ</span>
+            <strong data-th="ลานหินทรายธรรมชาติ" data-en="Sandstone Terraces &amp; Cliffs">ลานหินทรายธรรมชาติ</strong>
+          </div>
+          <div class="location-fact">
+            <span data-th="กลุ่มชุดดินหลัก" data-en="Dominant Soils">กลุ่มชุดดินหลัก</span>
+            <strong data-th="ชุดดินโคราช ท่ายาง น้ำพอง (พื้นที่ดอน)" data-en="Korat &amp; Nam Phong Series (Upland)">ชุดดินโคราช ท่ายาง น้ำพอง (พื้นที่ดอน)</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- 06 / FLORA & FORESTRY -->
+    <section class="article-section flora-section">
+      <div class="container">
+        <div class="article-narrow">
+          <p class="section-label"
+            data-th="06 / FLORA &amp; FORESTRY"
+            data-en="06 / FLORA &amp; FORESTRY">
+            06 / FLORA &amp; FORESTRY
+          </p>
+
+          <h2 class="section-title"
+            data-th="ทรัพยากรป่าไม้"
+            data-en="Forest Resources">
+            ทรัพยากรป่าไม้
+          </h2>
+
+          <div class="article-copy">
+            <p
+              data-th="จากการสำรวจเบื้องต้นตามลักษณะภูมิอากาศ ความสูงต่ำของภูมิประเทศ ดิน และสภาพแวดล้อม สามารถจำแนกสังคมพืชเด่นในพื้นที่อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท (เตรียมการ) ออกเป็น 3 ประเภทหลัก ได้แก่ ป่าเบญจพรรณ ป่าเต็งรัง และป่าดิบแล้ง"
+              data-en="Based on microclimates, topography, and soil conditions, the dominant vegetation in Phu Hin Jom That–Phu Phra Bat National Park (Proposed) is classified into three major forest zones: Mixed Deciduous, Deciduous Dipterocarp, and Dry Evergreen.">
+              จากการสำรวจเบื้องต้นตามลักษณะภูมิอากาศ ความสูงต่ำของภูมิประเทศ ดิน และสภาพแวดล้อม สามารถจำแนกสังคมพืชเด่นในพื้นที่อุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท (เตรียมการ) ออกเป็น 3 ประเภทหลัก ได้แก่ ป่าเบญจพรรณ ป่าเต็งรัง และป่าดิบแล้ง
+            </p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 24px; margin-top: 36px;">
+          <!-- 1. ป่าเบญจพรรณ -->
+          <article class="place" style="margin: 0; background: var(--sand); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column;">
+            <div style="height: 190px; overflow: hidden; background: #e0e0e0;">
+              <img src="IMG/ป่า-3.jpg" alt="ป่าเบญจพรรณ" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="padding: 22px; flex: 1; display: flex; flex-direction: column;">
+              <p class="place-label" data-th="สังคมพืช 01" data-en="Forest Type 01">สังคมพืช 01</p>
+              <h3 style="font-size: 19px; margin-bottom: 8px;" data-th="ป่าเบญจพรรณ (Mixed Deciduous)" data-en="Mixed Deciduous Forest">ป่าเบญจพรรณ (Mixed Deciduous)</h3>
+              <p style="font-size: 14px; line-height: 1.6; color: var(--muted); margin: 0;"
+                 data-th="พบตามที่ราบเชิงเขาและไหล่เขา มีไผ่กระจายตัวหนาแน่น พรรณไม้สำคัญ ได้แก่ มะค่าโมง แดง ประดู่ สัก ตะแบก ชิงชัน และพะยูง"
+                 data-en="Found along foothills and slopes with rich bamboo undergrowth. Key species include Makha Mong, Ironwood, Padauk, Teak, and Siamese Rosewood.">
+                พบตามที่ราบเชิงเขาและไหล่เขา มีไผ่กระจายตัวหนาแน่น พรรณไม้สำคัญ ได้แก่ มะค่าโมง แดง ประดู่ สัก ตะแบก ชิงชัน และพะยูง
+              </p>
+            </div>
+          </article>
+
+          <!-- 2. ป่าเต็งรัง -->
+          <article class="place" style="margin: 0; background: var(--sand); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column;">
+            <div style="height: 190px; overflow: hidden; background: #e0e0e0;">
+              <img src="IMG/ป่า-2.jpg" alt="ป่าเต็งรัง" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="padding: 22px; flex: 1; display: flex; flex-direction: column;">
+              <p class="place-label" data-th="สังคมพืช 02" data-en="Forest Type 02">สังคมพืช 02</p>
+              <h3 style="font-size: 19px; margin-bottom: 8px;" data-th="ป่าเต็งรัง (Deciduous Dipterocarp)" data-en="Deciduous Dipterocarp Forest">ป่าเต็งรัง (Deciduous Dipterocarp)</h3>
+              <p style="font-size: 14px; line-height: 1.6; color: var(--muted); margin: 0;"
+                 data-th="พบบนที่ลาดชันและสันเขาสูงถึง 500 ม. สภาพแห้งแล้ง ดินตื้นปนหิน พืชเด่น ได้แก่ เต็ง รัง เหียง พลวง กราด พะยอม มะขามป้อม และผักหวานป่า"
+                 data-en="Covers rocky slopes up to 500m. Resilient flora includes Teng, Rang, Hiang, Pluang, Grad, White Meranti, and Indian Gooseberry.">
+                พบบนที่ลาดชันและสันเขาสูงถึง 500 ม. สภาพแห้งแล้ง ดินตื้นปนหิน พืชเด่น ได้แก่ เต็ง รัง เหียง พลวง กราด พะยอม มะขามป้อม และผักหวานป่า
+              </p>
+            </div>
+          </article>
+
+          <!-- 3. ป่าดิบแล้ง -->
+          <article class="place" style="margin: 0; background: var(--sand); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column;">
+            <div style="height: 190px; overflow: hidden; background: #e0e0e0;">
+              <img src="IMG/ป่า-1.jpg" alt="ป่าดิบแล้ง" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="padding: 22px; flex: 1; display: flex; flex-direction: column;">
+              <p class="place-label" data-th="สังคมพืช 03" data-en="Forest Type 03">สังคมพืช 03</p>
+              <h3 style="font-size: 19px; margin-bottom: 8px;" data-th="ป่าดิบแล้ง (Dry Evergreen)" data-en="Dry Evergreen Forest">ป่าดิบแล้ง (Dry Evergreen)</h3>
+              <p style="font-size: 14px; line-height: 1.6; color: var(--muted); margin: 0;"
+                 data-th="พบสองฝั่งลำห้วยตามหุบเขาที่ชุ่มชื้น ดินค่อนข้างลึก พรรณไม้ยืนต้นเรือนยอดสูง เช่น ยางนา ยางแดง มะค่าโมง กระบาก ตะคร้ำ และทองหลางป่า"
+                 data-en="Thrives in moist stream valleys with deep soils. Notable tall canopy trees include Yang Na, Yang Daeng, Makha Mong, Krabak, and Takram.">
+                พบสองฝั่งลำห้วยตามหุบเขาที่ชุ่มชื้น ดินค่อนข้างลึก พรรณไม้ยืนต้นเรือนยอดสูง เช่น ยางนา ยางแดง มะค่าโมง กระบาก ตะคร้ำ และทองหลางป่า
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+<!-- 07 / FAUNA & WILDLIFE -->
+    <section class="article-section fauna-section">
+      <div class="container">
+        <div class="article-narrow">
+          <p class="section-label"
+            data-th="07 / FAUNA &amp; WILDLIFE"
+            data-en="07 / FAUNA &amp; WILDLIFE">
+            07 / FAUNA &amp; WILDLIFE
+          </p>
+
+          <h2 class="section-title"
+            data-th="ทรัพยากรสัตว์ป่า"
+            data-en="Fauna and Wildlife">
+            ทรัพยากรสัตว์ป่า
+          </h2>
+
+          <div class="article-copy">
+            <p
+              data-th="จากการสำรวจความหลากหลายทางชีวภาพและข้อมูลภาคสนามรอบแนวเขตอุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท (เตรียมการ) พบสัตว์ป่าอาศัยอยู่เป็นจำนวนมาก สะท้อนถึงความอุดมสมบูรณ์ของระบบนิเวศป่าไม้ โดยจำแนกออกเป็น 4 กลุ่มหลัก"
+              data-en="Field documentation confirms that the park is an essential sanctuary for diverse wildlife, classified into four primary faunal groups:">
+              จากการสำรวจความหลากหลายทางชีวภาพและข้อมูลภาคสนามรอบแนวเขตอุทยานแห่งชาติภูหินจอมธาตุ–ภูพระบาท (เตรียมการ) พบสัตว์ป่าอาศัยอยู่เป็นจำนวนมาก สะท้อนถึงความอุดมสมบูรณ์ของระบบนิเวศป่าไม้ โดยจำแนกออกเป็น 4 กลุ่มหลัก
+            </p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 36px;">
+          <!-- 1. สัตว์เลี้ยงลูกด้วยนม -->
+          <div style="background: var(--sand); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column;">
+            <div style="height: 160px; overflow: hidden; position: relative;">
+              <img src="IMG/animal-11.jpg" alt="สัตว์เลี้ยงลูกด้วยนม" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="padding: 18px; flex: 1;">
+              <span class="place-label" style="font-size: 11px;" data-th="MAMMALS" data-en="MAMMALS">MAMMALS</span>
+              <h3 style="font-size: 17px; margin: 4px 0 8px;" data-th="สัตว์เลี้ยงลูกด้วยนม" data-en="Mammals">สัตว์เลี้ยงลูกด้วยนม</h3>
+              <p style="font-size: 13.5px; line-height: 1.6; color: var(--muted); margin: 0;"
+                 data-th="เช่น หมูป่า, หมาจิ้งจอกทอง, อีเห็นข้างลาย (อีเห็นธรรมดา), ลิงแสม และพังพอนธรรมดา"
+                 data-en="Eurasian Wild Boar, Golden Jackal, Common Palm Civet, Crab-eating Macaque, and Javan Mongoose.">
+                เช่น หมูป่า, หมาจิ้งจอกทอง, อีเห็นข้างลาย (อีเห็นธรรมดา), ลิงแสม และพังพอนธรรมดา
+              </p>
+            </div>
+          </div>
+
+          <!-- 2. สัตว์สะเทินน้ำสะเทินบก -->
+          <div style="background: var(--sand); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column;">
+            <div style="height: 160px; overflow: hidden; position: relative;">
+              <img src="IMG/animal-6.jpg" alt="สัตว์สะเทินน้ำสะเทินบก" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="padding: 18px; flex: 1;">
+              <span class="place-label" style="font-size: 11px;" data-th="AMPHIBIANS" data-en="AMPHIBIANS">AMPHIBIANS</span>
+              <h3 style="font-size: 17px; margin: 4px 0 8px;" data-th="สัตว์สะเทินน้ำสะเทินบก" data-en="Amphibians">สัตว์สะเทินน้ำสะเทินบก</h3>
+              <p style="font-size: 13.5px; line-height: 1.6; color: var(--muted); margin: 0;"
+                 data-th="เช่น กบนา, กบหนอง, กบหงอน, อึ่งปากขวด และอึ่งอ่างบ้าน"
+                 data-en="East Asian Bullfrog, Paddy Frog, Crested Frog, Truncate-snouted Burrowing Frog, and Asian Painted Frog.">
+                เช่น กบนา, กบหนอง, กบหงอน, อึ่งปากขวด และอึ่งอ่างบ้าน
+              </p>
+            </div>
+          </div>
+
+          <!-- 3. สัตว์เลื้อยคลาน -->
+          <div style="background: var(--sand); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column;">
+            <div style="height: 160px; overflow: hidden; position: relative;">
+              <img src="IMG/animal-10.jpg" alt="สัตว์เลื้อยคลาน" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="padding: 18px; flex: 1;">
+              <span class="place-label" style="font-size: 11px;" data-th="REPTILES" data-en="REPTILES">REPTILES</span>
+              <h3 style="font-size: 17px; margin: 4px 0 8px;" data-th="สัตว์เลื้อยคลาน" data-en="Reptiles">สัตว์เลื้อยคลาน</h3>
+              <p style="font-size: 13.5px; line-height: 1.6; color: var(--muted); margin: 0;"
+                 data-th="เช่น งู, กิ้งก่าคอแดง, กิ้งก่าหัวฟ้า, จิ้งเหลน, ตุ๊กแกบ้าน และตะกวด"
+                 data-en="Snake, Crested Lizard, Blue-crested Lizard, Skink, Tokay Gecko, and Clouded/Bengal Monitor.">
+                เช่น งู, กิ้งก่าคอแดง, กิ้งก่าหัวฟ้า, จิ้งเหลน, ตุ๊กแกบ้าน และตะกวด
+              </p>
+            </div>
+          </div>
+
+          <!-- 4. นก -->
+          <div style="background: var(--sand); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column;">
+            <div style="height: 160px; overflow: hidden; position: relative;">
+              <img src="IMG/animal-1.jpg" alt="นก" style="width: 100%; height: 160%; object-fit: cover;">
+            </div>
+            <div style="padding: 18px; flex: 1;">
+              <span class="place-label" style="font-size: 11px;" data-th="BIRDS" data-en="BIRDS">BIRDS</span>
+              <h3 style="font-size: 17px; margin: 4px 0 8px;" data-th="นกนานาชนิด" data-en="Birds">นกนานาชนิด</h3>
+              <p style="font-size: 13.5px; line-height: 1.6; color: var(--muted); margin: 0;"
+                 data-th="เช่น นกกะรางหัวขวาน, นกเอี้ยงถ้ำ, นกกระปูดใหญ่, นกกาเหว่า, นกกางเขนบ้าน, นกแซงแซวหางปลา และนกปรอดหัวสีเขม่า"
+                 data-en="Eurasian Hoopoe, Blue Whistling Thrush, Greater Coucal, Asian Koel, Oriental Magpie-Robin, and Sooty-headed Bulbul.">
+                เช่น นกกะรางหัวขวาน, นกเอี้ยงถ้ำ, นกกระปูดใหญ่, นกกาเหว่า, นกกางเขนบ้าน, นกแซงแซวหางปลา และนกปรอดหัวสีเขม่า
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="brand" style="color:white; display:flex; align-items:center; gap:12px;">
+            <img class="brand-mark" src="IMG/logo.png" alt="โลโก้อุทยาน"
+                 style="width:36px;height:42px;object-fit:contain;">
+            <div>
+              <span style="font-weight:700; display:block;"
+                data-th="ภูหินจอมธาตุ–ภูพระบาท"
+                data-en="Phu Hin Jom That–Phu Phra Bat">
+                ภูหินจอมธาตุ–ภูพระบาท
+              </span>
+              <small
+                style="color:#c6d2c9; display:block; font-size:11px;"
+                data-th="อุทยานแห่งชาติ"
+                data-en="NATIONAL PARK">
+                อุทยานแห่งชาติ
+              </small>
+            </div>
+          </div>
+
+          <p data-th="No Gift Policy ทส. โปร่งใส และเป็นธรรม"
+             data-en="No Gift Policy: Transparency and Fairness">
+            No Gift Policy ทส. โปร่งใส และเป็นธรรม
+          </p>
+        </div>
+
+        <div>
+          <strong data-th="ติดต่อเรา" data-en="Contact Us">
+            ติดต่อเรา
+          </strong>
+
+          <p data-th="โทรศัพท์: 061-460-6624"
+             data-en="Tel: 061-460-6624">
+            โทรศัพท์: 061-460-6624
+          </p>
+
+          <p data-th="อีเมล: phupaya.nationalpark@gmail.com"
+             data-en="Email: phupaya.nationalpark@gmail.com">
+            อีเมล: phupaya.nationalpark@gmail.com
+          </p>
+
+          <p data-th="เฟซบุ๊ค: อุทยานแห่งชาติภูหินจอมธาตุ-ภูพระบาท"
+             data-en="Facebook: อุทยานแห่งชาติภูหินจอมธาตุ-ภูพระบาท">
+            เฟซบุ๊ค: อุทยานแห่งชาติภูหินจอมธาตุ-ภูพระบาท
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © <span id="currentYear"></span>
+        Phu Hin Jom That–Phu Phra Bat National Park ·
+        <span data-th="ต้นแบบเว็บไซต์" data-en="Website prototype">
+          ต้นแบบเว็บไซต์
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ปีปัจจุบันใน Footer
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+
+    // สลับภาษาไทย / อังกฤษ พร้อมบันทึกสถานะลง localStorage
+    const languageToggle = document.getElementById("languageToggle");
+    let currentLanguage = localStorage.getItem("site_lang") || "th";
+
+    function updateLanguage(lang) {
+      document.documentElement.lang = lang;
+      languageToggle.textContent = lang === "th" ? "EN" : "TH";
+      document.querySelectorAll("[data-th][data-en]").forEach(function (element) {
+        element.innerHTML = element.getAttribute("data-" + lang);
+      });
+      localStorage.setItem("site_lang", lang);
+    }
+
+    // กำหนดค่าเริ่มต้นตามที่เก็บไว้
+    updateLanguage(currentLanguage);
+
+    languageToggle.addEventListener("click", function () {
+      currentLanguage = currentLanguage === "th" ? "en" : "th";
+      updateLanguage(currentLanguage);
+    });
+
+    // เมนูสำหรับโทรศัพท์
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNavigation = document.getElementById("mainNavigation");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = mainNavigation.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "ปิดเมนู" : "เปิดเมนู"
+      );
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    // ปิดเมนูหลังคลิกลิงก์
+    mainNavigation.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        mainNavigation.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+  </script>
+
+</body>
+</html>
